@@ -9,31 +9,6 @@ class SessionForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
   }
 
-  // shouldComponentUpdate(nextProps, nextState){
-  //   console.warn(nextState);
-  //   console.log("current", this.props.history);
-  //   console.log("prev", nextProps.history);
-  //   if(this.props.location.href !== nextProps.location.href){
-  //     this.props.errors = [];
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
-  // componentDidMount(){
-  //   this.unlisten =
-  //   this.props.history.listen((location, action) => {
-  //     this.props.errors = [];
-  //     console.log('route changed', location.href);
-  //   });
-  // }
-  // componentWillUnmount(){
-  //   this.unlisten();
-  // }
-
-
-
   update(field){
     return (e) => {
       this.setState({[field]: e.currentTarget.value});
@@ -66,24 +41,24 @@ class SessionForm extends React.Component {
 
   render(){
 
-    const usernameInput = (this.props.formType === 'Sign Up') ?
+    const usernameInput = (this.props.formType === 'Sign up') ?
       <input type='text' placeholder='Username'
         value={this.state.username}
         onChange={this.update('username')} /> : '';
 
-    const siteDescription = (this.props.formType === 'Sign Up') ?
+    const siteDescription = (this.props.formType === 'Sign up') ?
     <div>
       <p>Come for what you love.</p>
-      <p>Stay for what you discover</p>
+      <p>Stay for what you discover.</p>
     </div>
     : '';
 
-    const demoUser = (this.props.formType === 'Log In') ?
+    const demoUser = (this.props.formType === 'Log in') ?
     <button onClick={this.demoLogin}>Demo Login</button> : "";
 
     return (
       <div className="session-form">
-        {this.props.link}
+        <div onClick={() => this.props.clearErrors()}>{this.props.link}</div>
 
         <h1 className="site-name">rollover</h1>
         {siteDescription}
@@ -104,7 +79,7 @@ class SessionForm extends React.Component {
           {usernameInput}
           </div>
 
-          <input type="submit" value={this.props.formType} />
+          <button>{this.props.formType}</button>
           {demoUser}
         </form>
       </div>
