@@ -14,7 +14,13 @@ class HeaderComponent extends React.Component {
     return (
       <header>
         <Link to='/'><h1 className='logo'>r</h1></Link>
+
+      <nav>
+        <Link to='https://github.com/sam-mcclure/rollover'>
+        </Link>
+        <Link to='https://www.linkedin.com/in/sam-mcclure-developer/'></Link>
         {button}
+      </nav>
       </header>
     );
   }

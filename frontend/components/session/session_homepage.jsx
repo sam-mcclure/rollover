@@ -13,7 +13,8 @@ class sessionHomepage extends React.Component {
   }
 
   setImage(){
-    const imageClasses = ['corgi', 'husky', 'labs', 'scenery', 'water', 'yorkie'];
+    const imageClasses =
+    ['corgi', 'husky', 'labs', 'scenery', 'water', 'yorkie'];
     const max = 6;
     const min = 0;
     const imageInt = Math.floor(Math.random() * (max - min) + min);
