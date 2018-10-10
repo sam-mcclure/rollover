@@ -5,21 +5,34 @@ import HeaderComponent from '../header/header';
 class SessionForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = this.props.defaultState;
+    this.state = { form: this.props.defaultState,
+    image: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
   }
 
+  componentDidMount(){
+    this.setImage();
+  }
+
+  setImage(){
+    const imageClasses = ['corgi', 'husky', 'labs', 'scenery', 'water', 'yorkie'];
+    const max = 6;
+    const min = 0;
+    const imageInt = Math.floor(Math.random() * (max - min) + min);
+    const imageClass = imageClasses[imageInt];
+    this.setState({image: imageClass});
+  }
 
   update(field){
     return (e) => {
-      this.setState({[field]: e.currentTarget.value});
+        this.setState({form: {[field]: e.currentTarget.value}});
     };
   }
 
   handleSubmit(e){
     e.preventDefault();
-    const user = Object.assign({}, this.state);
+    const user = Object.assign({}, this.state.form);
     this.props.processForm(user);
   }
 
@@ -59,7 +72,7 @@ class SessionForm extends React.Component {
     <button onClick={this.demoLogin}>Demo Login</button> : "";
 
     return (
-      <div className="session">
+      <div className={`session ${this.state.image}`}>
         <HeaderComponent
           button={this.props.link}
           clearErrors={this.props.clearErrors}/>
