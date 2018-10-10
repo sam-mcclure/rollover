@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
+import HeaderComponent from '../header/header';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -57,32 +58,39 @@ class SessionForm extends React.Component {
     <button onClick={this.demoLogin}>Demo Login</button> : "";
 
     return (
-      <div className="session-form">
-        <div onClick={() => this.props.clearErrors()}>{this.props.link}</div>
+      <div>
+        <HeaderComponent
+          button={this.props.link}
+          clearErrors={this.props.clearErrors}/>
 
-        <h1 className="site-name">rollover</h1>
-        {siteDescription}
+          <div className="session-form">
 
 
-        {this.renderErrors()}
+            <h1 className="site-name">rollover</h1>
+            {siteDescription}
 
-        <form onSubmit={this.handleSubmit}>
 
-          <div className='session-input'>
-          <input type='email' placeholder='Email'
-            value={this.state.email}
-            onChange={this.update('email')} />
+            {this.renderErrors()}
 
-          <input type='password' placeholder='Password'
-            value={this.state.password}
-            onChange={this.update('password')} />
-          {usernameInput}
+            <form onSubmit={this.handleSubmit}>
+
+              <div className='session-input'>
+              <input type='email' placeholder='Email'
+                value={this.state.email}
+                onChange={this.update('email')} />
+
+              <input type='password' placeholder='Password'
+                value={this.state.password}
+                onChange={this.update('password')} />
+              {usernameInput}
+              </div>
+
+              <button>{this.props.formType}</button>
+              {demoUser}
+            </form>
           </div>
-
-          <button>{this.props.formType}</button>
-          {demoUser}
-        </form>
       </div>
+
     );
   }
 
