@@ -2,24 +2,46 @@ import React from 'react';
 import HeaderComponent from '../header/header';
 import { Link } from 'react-router-dom';
 
-const sessionHomepage = () => {
-  return (
-    <div className="session">
-      <HeaderComponent />
+class sessionHomepage extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {image: ''};
+  }
 
-      <div className='session-form'>
-        <h1>rollover</h1>
-        <p>Come for what you love.</p>
-        <p>Stay for what you discover</p>
+  componentDidMount(){
+    this.setImage();
+  }
 
-        <form>
-          <Link to='/signup'><button>Get Started</button></Link>
-          <Link to='/login'><button
-            className='index-login'>Log In</button></Link>
-        </form>
+  setImage(){
+    const imageClasses = ['corgi', 'husky', 'lab', 'scenery', 'water', 'yorkie'];
+    const max = 6;
+    const min = 0;
+    const imageInt = Math.floor(Math.random() * (max - min) + min);
+    const imageClass = imageClasses[imageInt];
+    this.setState({image: imageClass});
+    console.log('imageClass', imageClass);
+    console.log('imageInt', imageInt);
+  }
+
+  render(){
+    return (
+      <div className={`session ${this.state.image}`}>
+        <HeaderComponent />
+
+        <div className='session-form'>
+          <h1>rollover</h1>
+          <p>Come for what you love.</p>
+          <p>Stay for what you discover.</p>
+
+          <form>
+            <Link to='/signup'><button>Get Started</button></Link>
+            <Link to='/login'><button
+              className='index-login'>Log In</button></Link>
+          </form>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default sessionHomepage;

@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
   }
 
+
   update(field){
     return (e) => {
       this.setState({[field]: e.currentTarget.value});
