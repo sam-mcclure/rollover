@@ -67,7 +67,7 @@ class SessionForm extends React.Component {
   render(){
 
     const usernameInput = (this.props.formType === 'Sign Up') ?
-      <input type='text' placeholder='username'
+      <input type='text' placeholder='Username'
         value={this.state.username}
         onChange={this.update('username')} /> : '';
 
@@ -83,24 +83,27 @@ class SessionForm extends React.Component {
 
     return (
       <div className="session-form">
+        {this.props.link}
+
         <h1 className="site-name">rollover</h1>
         {siteDescription}
 
-        <h2>{this.props.formType}</h2>
-        {this.props.link}
 
         {this.renderErrors()}
 
         <form onSubmit={this.handleSubmit}>
-          <input type='email' placeholder='email'
+
+          <div className='session-input'>
+          <input type='email' placeholder='Email'
             value={this.state.email}
             onChange={this.update('email')} />
 
-          <input type='password' placeholder='password'
+          <input type='password' placeholder='Password'
             value={this.state.password}
             onChange={this.update('password')} />
-
           {usernameInput}
+          </div>
+
           <input type="submit" value={this.props.formType} />
           {demoUser}
         </form>

@@ -8,7 +8,7 @@ const msp = (state, ownProps) => {
   return {
     errors: state.errors.session,
     formType: 'Sign Up',
-    link: <Link to='/login'>Log In</Link>,
+    link: <Link to='/login'><button>Log In</button></Link>,
     currentUser: state.entities.users[state.session.id],
     defaultState: {email: '', password: '', username: ''},
     path: ownProps.location.href

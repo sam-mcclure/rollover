@@ -14,8 +14,8 @@ const Homepage = ({currentUser, logout}) => {
       <h1>rollover</h1>
       <p>Come for what you love.</p>
       <p>Stay for what you discover</p>
-      <Link to='/signup'>Sign Up</Link>
-      <Link to='/login'>Log In</Link>
+      <Link to='/signup'><button>Sign Up</button></Link>
+      <Link to='/login'><button>Log In</button></Link>
     </nav>
   );
 
