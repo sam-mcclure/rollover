@@ -45,12 +45,38 @@ html {
     align-items: center;
     padding-top: 50px;
 
+    h1 {
+      font-size: 65px;
+      font-weight: bold;
+    }
+
     form {
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 300px;
+      height: auto;
       margin-top: 22px;
+
+      ul {
+        background-color: rgba(0, 0, 0, 0.33);
+        margin-top: 10px;
+        width: 300px;
+        border-radius: 2px;
+        opacity: 1;
+
+
+        li {
+          text-align: center;
+          color: white;
+          padding: 5px 5px 0 5px;
+          font-size: 14px;
+          font-family: Helvetica, sans-serif;
+        }
+
+        li:last-child {
+          padding-bottom: 5px;
+        }
+      }
 
 
       .session-input {
@@ -93,7 +119,11 @@ html {
         border-radius: 2px;
         color: white;
         font-weight: 500;
+      }
 
+      .index-login {
+        background-color: white;
+        color: black;
       }
     }
   }

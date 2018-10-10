@@ -69,9 +69,6 @@ class SessionForm extends React.Component {
             <h1 className="site-name">rollover</h1>
             {siteDescription}
 
-
-            {this.renderErrors()}
-
             <form onSubmit={this.handleSubmit}>
 
               <div className='session-input'>
@@ -84,6 +81,8 @@ class SessionForm extends React.Component {
                 onChange={this.update('password')} />
               {usernameInput}
               </div>
+
+              {this.renderErrors()}
 
               <button>{this.props.formType}</button>
               {demoUser}
