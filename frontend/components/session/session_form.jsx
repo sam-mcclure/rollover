@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
     <button onClick={this.demoLogin}>Demo Login</button> : "";
 
     return (
-      <div>
+      <div className="session">
         <HeaderComponent
           button={this.props.link}
           clearErrors={this.props.clearErrors}/>

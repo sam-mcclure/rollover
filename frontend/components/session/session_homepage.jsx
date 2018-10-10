@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const sessionHomepage = () => {
   return (
-    <div>
+    <div className="session">
       <HeaderComponent />
 
       <div className='session-form'>
