@@ -6,9 +6,9 @@ import { Route, Link } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 
 const App = () => (
-  <div>
+  <div className="main">
     <header>
-    <Link to='/'><h1>r</h1></Link>
+    <Link to='/'><h1 className='logo'>r</h1></Link>
     <Route exact path='/' component={HomepageContainer} />
     </header>
 

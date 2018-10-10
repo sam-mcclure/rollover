@@ -4,13 +4,14 @@ import { signup } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 import SessionForm from './session_form';
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
   return {
     errors: state.errors.session,
     formType: 'Sign Up',
     link: <Link to='/login'>Log In</Link>,
     currentUser: state.entities.users[state.session.id],
-    defaultState: {email: '', password: '', username: ''}
+    defaultState: {email: '', password: '', username: ''},
+    path: ownProps.location.href
   };
 };
 

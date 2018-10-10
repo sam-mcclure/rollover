@@ -6,7 +6,33 @@ class SessionForm extends React.Component {
     super(props);
     this.state = this.props.defaultState;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
+
+  // shouldComponentUpdate(nextProps, nextState){
+  //   console.warn(nextState);
+  //   console.log("current", this.props.history);
+  //   console.log("prev", nextProps.history);
+  //   if(this.props.location.href !== nextProps.location.href){
+  //     this.props.errors = [];
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
+  // componentDidMount(){
+  //   this.unlisten =
+  //   this.props.history.listen((location, action) => {
+  //     this.props.errors = [];
+  //     console.log('route changed', location.href);
+  //   });
+  // }
+  // componentWillUnmount(){
+  //   this.unlisten();
+  // }
+
+
 
   update(field){
     return (e) => {
@@ -17,6 +43,12 @@ class SessionForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const user = Object.assign({}, this.state);
+    this.props.processForm(user);
+  }
+
+  demoLogin(e){
+    e.preventDefault();
+    const user = {email: 'guest@guest.com', password:'password'};
     this.props.processForm(user);
   }
 
@@ -33,6 +65,7 @@ class SessionForm extends React.Component {
   }
 
   render(){
+
     const usernameInput = (this.props.formType === 'Sign Up') ?
       <input type='text' placeholder='username'
         value={this.state.username}
@@ -45,9 +78,12 @@ class SessionForm extends React.Component {
     </div>
     : '';
 
-    return this.props.currentUser ? (<Redirect to='/' />) : (
-      <div>
-        <h1>rollover</h1>
+    const demoUser = (this.props.formType === 'Log In') ?
+    <button onClick={this.demoLogin}>Demo Login</button> : "";
+
+    return (
+      <div className="session-form">
+        <h1 className="site-name">rollover</h1>
         {siteDescription}
 
         <h2>{this.props.formType}</h2>
@@ -66,6 +102,7 @@ class SessionForm extends React.Component {
 
           {usernameInput}
           <input type="submit" value={this.props.formType} />
+          {demoUser}
         </form>
       </div>
     );
