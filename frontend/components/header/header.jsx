@@ -11,8 +11,11 @@ class HeaderComponent extends React.Component {
     (<div onClick={() => this.props.clearErrors()}
       className='header-button-div'>{this.props.button}</div>) : '';
 
+    const headerClass = (this.props.headerClass) ? 'dashboard-header' :
+      '';
+
     return (
-      <header>
+      <header className={headerClass}>
 
       <Link to='/'><h1 className='logo'
         onClick={() => this.props.clearErrors()}>r</h1></Link>

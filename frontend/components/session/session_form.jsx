@@ -6,7 +6,7 @@ class SessionForm extends React.Component {
   constructor(props){
     super(props);
     this.state = { email: '', username: '', password: '',
-    image: ''};
+    backgroundImage: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
   }
@@ -21,7 +21,7 @@ class SessionForm extends React.Component {
     const min = 0;
     const imageInt = Math.floor(Math.random() * (max - min) + min);
     const imageClass = imageClasses[imageInt];
-    this.setState({image: imageClass});
+    this.setState({backgroundImage: imageClass});
   }
 
   update(field){
@@ -111,7 +111,7 @@ class SessionForm extends React.Component {
 
 
     return (
-      <div className={`session ${this.state.image}`}>
+      <div className={`session ${this.state.backgroundImage}`}>
         <HeaderComponent
           button={this.props.link}
           clearErrors={this.props.clearErrors}/>

@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates :username, :session_token, :email, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true}
   after_initialize :ensure_session_token
+  after_create :default_photo
 
   has_one_attached :photo
 
@@ -24,6 +25,14 @@ class User < ApplicationRecord
     class_name: :Post
 
   attr_reader :password
+
+  def default_photo
+    if !self.photo.attached?
+      file = File.open('app/assets/images/default-photo.jpeg')
+      self.photo.attach(io: file,
+      filename: 'default-photo.jpeg', content_type: 'image/jpeg')
+    end
+  end
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

@@ -17,4 +17,8 @@ class Post < ApplicationRecord
   belongs_to :author,
     foreign_key: :author_id,
     class_name: :User
+
+  has_one_attached :photo
+  has_one_attached :video
+  has_one_attached :audio
 end

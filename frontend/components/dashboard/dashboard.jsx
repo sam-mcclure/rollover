@@ -14,7 +14,14 @@ class Dashboard extends React.Component{
 
     return (
       <div className="dashboard">
-        <HeaderComponent button={button} clearErrors={this.props.clearErrors}/>
+        <HeaderComponent button={button} clearErrors={this.props.clearErrors}
+          headerClass='dashboard'/>
+        <img src={this.props.currentUser.photoUrl} />
+
+        <div className="post-buttons">
+          
+        </div>
+
         <PostIndexContainer />
       </div>
     );
