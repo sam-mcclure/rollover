@@ -14,7 +14,8 @@ class HeaderComponent extends React.Component {
     return (
       <header>
 
-      <Link to='/'><h1 className='logo'>r</h1></Link>
+      <Link to='/'><h1 className='logo'
+        onClick={() => this.props.clearErrors()}>r</h1></Link>
 
       <nav>
 
