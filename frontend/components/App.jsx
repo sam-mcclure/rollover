@@ -13,6 +13,12 @@ const App = () => (
       <AuthRoute exact path='/' component={sessionHomepage} />
       <AuthRoute path='/login' component={LoginFormContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />
+
+      //https://stackoverflow.com/questions/42914666/react-router-external-link
+      <Route path='/github'
+        component={() => window.location = 'https://github.com/sam-mcclure/rollover'}/>
+      <Route path='/linkedin'
+        component={() => window.location = 'https://www.linkedin.com/in/sam-mcclure-developer/'}/>
       <Redirect to='/' />
     </Switch>
   </div>

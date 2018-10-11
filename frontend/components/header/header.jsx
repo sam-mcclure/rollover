@@ -17,10 +17,10 @@ class HeaderComponent extends React.Component {
       <Link to='/'><h1 className='logo'>r</h1></Link>
 
       <nav>
-        <Link to='https://github.com/sam-mcclure/rollover'>
+        <Link to='/github'>
           <i className="fa fa-github"></i>
         </Link>
-        <Link to='https://www.linkedin.com/in/sam-mcclure-developer/'>
+        <Link to='/linkedin'>
         <i className="fa fa-linkedin"></i></Link>
         {button}
       </nav>
