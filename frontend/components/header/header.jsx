@@ -17,6 +17,7 @@ class HeaderComponent extends React.Component {
       <Link to='/'><h1 className='logo'>r</h1></Link>
 
       <nav>
+
         <a href="https://github.com/sam-mcclure/rollover">
           <i className="fa fa-github"></i>
         </a>

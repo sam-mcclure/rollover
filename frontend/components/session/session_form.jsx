@@ -5,7 +5,7 @@ import HeaderComponent from '../header/header';
 class SessionForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = { form: this.props.defaultState,
+    this.state = { email: '', username: '', password: '',
     image: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
@@ -26,13 +26,24 @@ class SessionForm extends React.Component {
 
   update(field){
     return (e) => {
-        this.setState({form: {[field]: e.currentTarget.value}});
+        this.setState({[field]: e.currentTarget.value});
     };
   }
 
   handleSubmit(e){
     e.preventDefault();
-    const user = Object.assign({}, this.state.form);
+    let userParams;
+    if (this.props.formType === 'Log in') {
+      userParams = {email: this.state.email,
+        password: this.state.password};
+    } else {
+      userParams = {email: this.state.email,
+        password: this.state.password,
+        username: this.state.username};
+    }
+
+    const user = Object.assign({}, userParams);
+    debugger
     this.props.processForm(user);
   }
 
