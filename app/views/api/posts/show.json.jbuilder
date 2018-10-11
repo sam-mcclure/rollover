@@ -1,3 +1,1 @@
-json.post do
-  json.partial! 'post', post: @post
-end
+json.partial! 'post', post: @post
