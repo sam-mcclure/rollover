@@ -5,6 +5,18 @@ html {
 
 .main {
 
+  nav {
+    display: flex;
+
+  }
+
+
+  .fa {
+    color: white;
+    font-size: 36px;
+    padding-right: 20px;
+  }
+
 
   .session {
     background-repeat: no-repeat;
