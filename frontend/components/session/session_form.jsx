@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter, Redirect, Link } from 'react-router-dom';
 import HeaderComponent from '../header/header';
 
 class SessionForm extends React.Component {
@@ -16,7 +16,7 @@ class SessionForm extends React.Component {
   }
 
   setImage(){
-    const imageClasses = ['corgi', 'husky', 'labs', 'scenery', 'water', 'yorkie'];
+    const imageClasses = ['cup', 'husky', 'labs', 'scenery', 'water', 'yorkie'];
     const max = 6;
     const min = 0;
     const imageInt = Math.floor(Math.random() * (max - min) + min);
@@ -43,7 +43,6 @@ class SessionForm extends React.Component {
     }
 
     const user = Object.assign({}, userParams);
-    debugger
     this.props.processForm(user);
   }
 
@@ -72,7 +71,8 @@ class SessionForm extends React.Component {
         value={this.state.username}
         onChange={this.update('username')} /> : '';
 
-    const siteDescription = (this.props.formType === 'Sign up') ?
+    const siteDescription = (this.props.formType === 'Sign up' ||
+    this.props.formType === 'Homepage') ?
     <div>
       <p>Come for what you love.</p>
       <p>Stay for what you discover.</p>
@@ -81,6 +81,34 @@ class SessionForm extends React.Component {
 
     const demoUser = (this.props.formType === 'Log in') ?
     <button onClick={this.demoLogin}>Demo Login</button> : "";
+
+    const content = (this.props.formType === 'Log in' ||
+      this.props.formType === 'Sign up') ?
+      <form onSubmit={this.handleSubmit}>
+
+        <div className='session-input'>
+        <input type='email' placeholder='Email'
+          value={this.state.email}
+          onChange={this.update('email')} />
+
+        <input type='password' placeholder='Password'
+          value={this.state.password}
+          onChange={this.update('password')} />
+        {usernameInput}
+        </div>
+
+        {this.renderErrors()}
+
+        <button>{this.props.formType}</button>
+        {demoUser}
+      </form> :
+
+      <form>
+        <Link to='/signup'><button>Get Started</button></Link>
+        <Link to='/login'><button
+          className='index-login'>Log In</button></Link>
+      </form>;
+
 
     return (
       <div className={`session ${this.state.image}`}>
@@ -93,25 +121,8 @@ class SessionForm extends React.Component {
 
             <h1 className="site-name">rollover</h1>
             {siteDescription}
+            {content}
 
-            <form onSubmit={this.handleSubmit}>
-
-              <div className='session-input'>
-              <input type='email' placeholder='Email'
-                value={this.state.email}
-                onChange={this.update('email')} />
-
-              <input type='password' placeholder='Password'
-                value={this.state.password}
-                onChange={this.update('password')} />
-              {usernameInput}
-              </div>
-
-              {this.renderErrors()}
-
-              <button>{this.props.formType}</button>
-              {demoUser}
-            </form>
           </div>
       </div>
 

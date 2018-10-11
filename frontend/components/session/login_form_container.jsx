@@ -9,9 +9,7 @@ const msp = (state, ownProps) => {
     errors: state.errors.session,
     formType: 'Log in',
     link: <Link to='/signup'><button
-    className='header-button signup-button'>Sign up</button></Link>,
-    currentUser: state.entities.users[state.session.id],
-    defaultState: {email: '', password: ''},
+    className='header-button signup-button'>Sign up</button></Link>
   };
 };
 
