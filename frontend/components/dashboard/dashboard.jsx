@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import HeaderComponent from '../header/header';
+import PostIndexContainer from '../post/post_index_container';
 
 class Dashboard extends React.Component{
   constructor(props){
@@ -14,6 +15,7 @@ class Dashboard extends React.Component{
     return (
       <div className="dashboard">
         <HeaderComponent button={button} clearErrors={this.props.clearErrors}/>
+        <PostIndexContainer />
       </div>
     );
   }
