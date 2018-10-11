@@ -6,6 +6,7 @@ class Api::PostsController < ApplicationController
     @post.author_id = current_user.id
 
     if @post.save
+      @posts = Post.all
       render :index
     else
       render json: @post.errors.full_messages, status: 422
@@ -16,6 +17,7 @@ class Api::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
+      @posts = Post.all
       render :index
     else
       render json: @post.errors.full_messages, status: 422
@@ -36,6 +38,7 @@ class Api::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    @posts = Post.all
     render :index
   end
 
