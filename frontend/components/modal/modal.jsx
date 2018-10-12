@@ -6,6 +6,8 @@ import LinkFormContainer from '../post/forms/link_form_container';
 import QuoteFormContainer from '../post/forms/quote_form_container';
 import TextFormContainer from '../post/forms/text_form_container';
 import PhotoFormContainer from '../post/forms/photo_form_container';
+import VideoFormContainer from '../post/forms/video_form_container';
+import AudioFormContainer from '../post/forms/audio_form_container';
 
 const Modal = ({modal, exitModal}) => {
   if (!modal) {
@@ -28,6 +30,12 @@ const Modal = ({modal, exitModal}) => {
       break;
     case 'photo':
       component = <PhotoFormContainer />;
+      break;
+    case 'video':
+      component = <VideoFormContainer />;
+      break;
+    case 'audio':
+      component = <AudioFormContainer />;
       break;
     default:
       return null;

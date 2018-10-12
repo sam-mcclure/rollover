@@ -11,6 +11,16 @@ const PostIndexItem = ({post, deletePost, currentUser}) => {
   const image = (post.photoUrl) ?
     <img src={post.photoUrl} /> : '';
 
+  const video = (post.videoUrl) ?
+    <video width="320" height="240" controls>
+      <source src={post.videoUrl} />
+    </video> : '';
+
+  const audio = (post.audioUrl) ?
+    <audio controls>
+      <source src={post.audioUrl} />
+    </audio> : '';
+
   return (
     <div className="post-container">
       <img className="user-img"
@@ -19,6 +29,8 @@ const PostIndexItem = ({post, deletePost, currentUser}) => {
         <strong>{post.authorUsername}</strong>
         {post.title}
         {image}
+        {video}
+        {audio}
         {post.body}
         {postButtons}
       </div>
