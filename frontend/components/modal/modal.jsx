@@ -11,6 +11,7 @@ const Modal = ({modal, exitModal}) => {
     return null;
   }
   let component;
+
   switch (modal) {
     case 'chat':
       component = <ChatFormContainer />;

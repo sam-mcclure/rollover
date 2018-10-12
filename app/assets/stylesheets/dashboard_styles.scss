@@ -26,7 +26,71 @@
 
   .user-bar {
     display: flex;
-    margin-top: 40px;
+    margin-top: 37px;
+
+
+    .post-buttons {
+      display: flex;
+      flex-direction: row;
+      background-color: white;
+      padding: 0 1px 0 7px;
+      margin-left: 20px;
+      border-radius: 3px;
+
+      .fa {
+        margin-bottom: 4px;
+      }
+
+      .fa:hover {
+        position: relative;
+        top: -4px;
+      }
+
+      .text-icon {
+        color: #444;
+      }
+
+      .photo-icon {
+        color: #d95e40;
+      }
+
+      .quote-icon {
+        color: #f2992e;
+      }
+
+      .link-icon {
+        color: #56bc8a;
+      }
+
+      .chat-icon {
+        color: #529ecc;
+      }
+
+      .audio-icon {
+        color: #a77dc2;
+      }
+
+      .video-icon {
+        color: #748089;
+      }
+
+      p {
+        color: #696969;
+        font-size: 15px;
+      }
+
+      .post-button {
+        padding: 20px 6px 20px 16px;
+      }
+
+      .inside-button {
+        border-right: 1px solid #F2F1F1;
+      }
+
+      .post_button:last-child {
+        border-right: none;
+      }
+    }
   }
 
 }

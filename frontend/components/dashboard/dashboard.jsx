@@ -22,9 +22,7 @@ class Dashboard extends React.Component{
         <div className="user-bar">
           <img className="user-img"
             src={this.props.currentUser.photoUrl} />
-          <div className="post-buttons">
-            <Form />
-          </div>
+          <Form />
         </div>
 
         <PostIndexContainer />
