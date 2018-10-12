@@ -28,9 +28,9 @@ class User < ApplicationRecord
 
   def default_photo
     if !self.photo.attached?
-      file = File.open('app/assets/images/default-photo.jpeg')
+      file = File.open('app/assets/images/default-photo.jpg')
       self.photo.attach(io: file,
-      filename: 'default-photo.jpeg', content_type: 'image/jpeg')
+      filename: 'default-photo.jpg', content_type: 'image/jpg')
     end
   end
 

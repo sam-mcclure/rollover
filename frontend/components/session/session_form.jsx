@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Redirect, Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import HeaderComponent from '../header/header';
 
 class SessionForm extends React.Component {
@@ -117,7 +117,6 @@ class SessionForm extends React.Component {
           clearErrors={this.props.clearErrors}/>
 
           <div className="session-form">
-
 
             <h1 className="site-name">rollover</h1>
             {siteDescription}

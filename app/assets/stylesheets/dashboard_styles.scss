@@ -10,10 +10,23 @@
 
   .post-index {
     color: white;
+    margin-top: 13px;
   }
 
   .dashboard-header {
     border-bottom: 1px solid hsla(0,0%,100%,.13);
+  }
+
+  .user-img {
+    height: 64px;
+    width: 64px;
+    display: block;
+    border-radius: 3px;
+  }
+
+  .user-bar {
+    display: flex;
+    margin-top: 40px;
   }
 
 }
