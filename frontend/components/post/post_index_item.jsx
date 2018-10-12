@@ -8,6 +8,9 @@ const PostIndexItem = ({post, deletePost, currentUser}) => {
     <button onClick={() => deletePost(post.id)}>Delete</button>
   </div> : '';
 
+  const image = (post.photoUrl) ?
+    <img src={post.photoUrl} /> : '';
+
   return (
     <div className="post-container">
       <img className="user-img"
@@ -15,6 +18,7 @@ const PostIndexItem = ({post, deletePost, currentUser}) => {
       <div className={`post post-${post.postType}`}>
         <strong>{post.authorUsername}</strong>
         {post.title}
+        {image}
         {post.body}
         {postButtons}
       </div>

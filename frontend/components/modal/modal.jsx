@@ -5,6 +5,7 @@ import ChatFormContainer from '../post/forms/chat_form_container';
 import LinkFormContainer from '../post/forms/link_form_container';
 import QuoteFormContainer from '../post/forms/quote_form_container';
 import TextFormContainer from '../post/forms/text_form_container';
+import PhotoFormContainer from '../post/forms/photo_form_container';
 
 const Modal = ({modal, exitModal}) => {
   if (!modal) {
@@ -24,6 +25,9 @@ const Modal = ({modal, exitModal}) => {
       break;
     case 'text':
       component = <TextFormContainer />;
+      break;
+    case 'photo':
+      component = <PhotoFormContainer />;
       break;
     default:
       return null;
