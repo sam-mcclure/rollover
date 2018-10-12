@@ -2,14 +2,86 @@
   background-color: white;
   display: flex;
   flex-direction: column;
+  padding: 13px 20px 15px 20px;
+  border-radius: 3px;
+  color: #444;
+  min-height: 200px;
+  width: 500px;
+
+
+  strong {
+    font-weight: bold;
+    font-size: 13px;
+    padding-bottom: 12px;
+  }
+
+  .title {
+    font-size: 36px;
+    padding-bottom: 10px;
+  }
 
   form {
     display: flex;
     flex-direction: column;
 
+    textarea {
+      height: 100px;
+      width: 100%;
+      font-size: 14px;
+    }
+
+
     .form-buttons {
       display: flex;
       justify-content: space-between;
+      border-top: 1px solid #F2F1F1;
+      padding-top: 15px;
+
+      button:disabled {
+        color: hsla(0,0%,100%,.5);
+        cursor: default;
+      }
+
+      button {
+        font-size: 13px;
+        color: white;
+        font-weight: 500;
+        border-radius: 2px;
+        padding: 6px 9px;
+      }
+
+      .close {
+        background-color: #9da6af;
+      }
+
+      .post {
+        background-color: #529ecc;
+      }
+    }
+  }
+}
+
+.form-quote {
+
+  .title-container{
+    display: flex;
+
+    input {
+      font-size: 48px;
+      width: 455px;
+    }
+
+    p {
+      font-size: 48px;
+      color: #726969;
+    }
+  }
+
+  .body-container {
+    display: flex;
+
+    p {
+      padding-right: 5px;
     }
   }
 }

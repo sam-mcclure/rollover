@@ -50,14 +50,20 @@ class MediaForm extends React.Component {
     const postButton = (this.state.photo === ''
     && this.state.video === '' &&
     this.state.audio === '') ?
-      <button disabled>Post</button> : <button>Post</button>;
+      <button className="post"
+        disabled>Post</button> :
+        <button className='post'>Post</button>;
+
+    const acceptTypes = (this.state.postType === 'photo') ?
+      ".jpg, .jpeg, .png, .gif" : (this.state.postType === 'video') ?
+      ".mp4" : ".mp3, .wav";
 
     return(
       <div className={`form form-${this.props.postType}`}>
         <strong>{this.props.currentUser.username}</strong>
         <form onSubmit={this.handleSubmit}>
 
-          <input type="file"
+          <input type="file" accept={acceptTypes}
             onChange={this.onFileChange(this.state.postType)} />
 
           <textarea placeholder="Add a caption, if you like"
@@ -65,7 +71,8 @@ class MediaForm extends React.Component {
             onChange={this.update('body')} />
 
           <div className="form-buttons">
-            <button onClick={this.props.closeModal}>Close</button>
+            <button className="close"
+              onClick={this.props.closeModal}>Close</button>
             {postButton}
           </div>
 
