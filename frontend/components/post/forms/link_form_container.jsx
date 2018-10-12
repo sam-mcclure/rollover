@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createPost } from '../../../actions/post_actions';
+import { closeModal } from '../../../actions/modal_actions';
 import TextForm from './text_form';
 
 const msp = (state) => {
@@ -14,7 +15,8 @@ const msp = (state) => {
 
 const mdp = dispatch => {
   return {
-    createPost: post => dispatch(createPost(post))
+    createPost: post => dispatch(createPost(post)),
+    closeModal: () => dispatch(closeModal())
   };
 };
 

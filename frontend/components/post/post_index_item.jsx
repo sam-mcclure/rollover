@@ -9,11 +9,15 @@ const PostIndexItem = ({post, deletePost, currentUser}) => {
   </div> : '';
 
   return (
-    <div className={`post post-${post.postType}`}>
-      <strong>{post.authorUsername}</strong>
-      {post.title}
-      {post.body}
-      {postButtons}
+    <div className="post-container">
+      <img className="user-img"
+        src={post.authorPhotoUrl} />
+      <div className={`post post-${post.postType}`}>
+        <strong>{post.authorUsername}</strong>
+        {post.title}
+        {post.body}
+        {postButtons}
+      </div>
     </div>
   );
 };

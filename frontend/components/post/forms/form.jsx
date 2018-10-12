@@ -1,7 +1,8 @@
 import React from 'react';
 import { openModal } from '../../../actions/modal_actions';
+import { connect } from 'react-redux';
 
-const Form = () => {
+const Form = ({openModal}) => {
   return (
     <div className="post-buttons">
       <div className="post-button"
@@ -17,7 +18,7 @@ const Form = () => {
         </div>
 
       <div className="post-button"
-        onClick={() => openModal('photo')}>
+        onClick={() => openModal('quote')}>
         <div className="inside-button">
         <i className="fa fa-quote-left quote-icon"></i><p>Quote</p></div>
         </div>
@@ -48,4 +49,10 @@ const Form = () => {
   );
 };
 
-export default Form;
+const mdp = dispatch => {
+  return {
+    openModal: modal => dispatch(openModal(modal))
+  };
+};
+
+export default connect(null, mdp)(Form);

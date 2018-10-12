@@ -3,15 +3,11 @@
   background-color: #36465d;
   min-width: 100%;
   min-height: 100%;
-  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 
-  .post-index {
-    color: white;
-    margin-top: 13px;
-  }
 
   .dashboard-header {
     border-bottom: 1px solid hsla(0,0%,100%,.13);

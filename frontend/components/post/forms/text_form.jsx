@@ -26,21 +26,25 @@ class TextForm extends React.Component {
   }
 
   render(){
+    const postButton = (this.state.body === '' && this.state.title === '') ?
+      <button disabled>Post</button> : <button>Post</button>;
+
     return(
-      <div className={`form-${this.props.postType}`}>
+      <div className={`form form-${this.props.postType}`}>
         <strong>{this.props.currentUser.username}</strong>
         <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder={this.props.titlePlaceholder}
             value={this.state.title}
             onChange={this.update('title')} />
 
-          <textare placeholder={this.props.bodyPlaceholder}
+          <textarea placeholder={this.props.bodyPlaceholder}
             value={this.state.body}
             onChange={this.update('body')} />
 
-          <button onClick={this.props.closeModal}>Close</button>
-          <button>Post</button>
-
+          <div className="form-buttons">
+            <button onClick={this.props.closeModal}>Close</button>
+            {postButton}
+          </div>
 
         </form>
       </div>
