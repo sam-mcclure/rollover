@@ -22,7 +22,7 @@ class TextForm extends React.Component {
     formData.append('post[post_type]', this.state.postType);
     formData.append('post[title]', this.state.title);
     formData.append('post[body]', this.state.body);
-    this.props.createPost(formData);
+    this.props.createPost(formData).then(this.props.closeModal);
   }
 
   render(){
@@ -38,6 +38,7 @@ class TextForm extends React.Component {
             value={this.state.body}
             onChange={this.update('body')} />
 
+          <button onClick={this.props.closeModal}>Close</button>
           <button>Post</button>
 
 
@@ -47,3 +48,5 @@ class TextForm extends React.Component {
   }
 
 }
+
+export default TextForm;

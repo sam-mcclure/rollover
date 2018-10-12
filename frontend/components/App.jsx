@@ -5,9 +5,11 @@ import DashboardContainer from './dashboard/dashboard_container';
 import HomepageContainer from './session/homepage_container';
 import { Route, Link, Switch, Redirect} from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Modal from './modal/modal';
 
 const App = () => (
   <div className="main">
+    <Modal />
     <Switch>
       <ProtectedRoute path='/dashboard' component={DashboardContainer} />
       <AuthRoute exact path='/' component={HomepageContainer} />
