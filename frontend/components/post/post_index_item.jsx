@@ -12,7 +12,7 @@ const PostIndexItem = ({post, deletePost, currentUser}) => {
     <img src={post.photoUrl} /> : '';
 
   const video = (post.videoUrl) ?
-    <video width="320" height="240" controls>
+    <video height="240" controls>
       <source src={post.videoUrl} />
     </video> : '';
 

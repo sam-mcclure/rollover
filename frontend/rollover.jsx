@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //testing
-  window.getState = store.getState;
+
   //testing
 
   const root = document.getElementById('root');

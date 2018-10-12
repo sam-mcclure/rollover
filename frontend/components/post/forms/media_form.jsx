@@ -6,14 +6,12 @@ class MediaForm extends React.Component {
     this.state = {
       postType: this.props.postType,
       body: '',
-      photoFile: '',
-      videoFile: '',
-      audioFile: ''
+      photo: '',
+      video: '',
+      audio: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.onFileChangePhoto = this.onFileChangePhoto.bind(this);
-    this.onFileChangeVideo = this.onFileChangeVideo.bind(this);
-    this.onFileChangeAudio = this.onFileChangeAudio.bind(this);
+    this.onFileChange = this.onFileChange.bind(this);
   }
 
   update(field){
@@ -22,19 +20,11 @@ class MediaForm extends React.Component {
     };
   }
 
-  onFileChangePhoto(e){
-    const file = e.target.files[0];
-    this.setState({photoFile: file});
-  }
-
-  onFileChangeVideo(e){
-    const file = e.target.files[0];
-    this.setState({videoFile: file});
-  }
-
-  onFileChangeAudio(e){
-    const file = e.target.files[0];
-    this.setState({audioFile: file});
+  onFileChange(field){
+    return (e) =>{
+      const file = e.target.files[0];
+      this.setState({[field]: file});
+    };
   }
 
   handleSubmit(e){
@@ -43,40 +33,32 @@ class MediaForm extends React.Component {
     formData.append('post[post_type]', this.state.postType);
     formData.append('post[body]', this.state.body);
 
-    if (this.state.photoFile) {
-      formData.append('post[photo]', this.state.photoFile);
+    if (this.state.photo) {
+      formData.append('post[photo]', this.state.photo);
     }
-
-    if (this.state.videoFile){
-      formData.append('post[video]', this.state.videoFile);
+    if (this.state.video){
+      formData.append('post[video]', this.state.video);
     }
-
-    if (this.state.audioFile){
-      formData.append('post[audio]', this.state.audioFile);
+    if (this.state.audio){
+      formData.append('post[audio]', this.state.audio);
     }
 
     this.props.createPost(formData).then(this.props.closeModal);
   }
 
   render(){
-    const postButton = (this.state.photoFile === ''
-    && this.state.videoFile === '' &&
-    this.state.audioFile === '') ?
+    const postButton = (this.state.photo === ''
+    && this.state.video === '' &&
+    this.state.audio === '') ?
       <button disabled>Post</button> : <button>Post</button>;
-
-    const fileInput = (this.state.postType === 'photo') ?
-        <input type="file" onChange={this.onFileChangePhoto} /> :
-          (this.state.postType === 'video') ?
-        <input type="file" onChange={this.onFileChangeVideo} /> :
-          <input type="file" onChange={this.onFileChangeAudio} />;
 
     return(
       <div className={`form form-${this.props.postType}`}>
         <strong>{this.props.currentUser.username}</strong>
         <form onSubmit={this.handleSubmit}>
 
-          {fileInput}
-
+          <input type="file"
+            onChange={this.onFileChange(this.state.postType)} />
 
           <textarea placeholder="Add a caption, if you like"
             value={this.state.body}
