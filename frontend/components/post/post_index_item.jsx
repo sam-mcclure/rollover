@@ -9,7 +9,7 @@ const PostIndexItem = ({post, deletePost, currentUser}) => {
   </div> : '';
 
   return (
-    <div>
+    <div className={`post post-${post.postType}`}>
       <strong>{post.authorUsername}</strong>
       {post.title}
       {post.body}

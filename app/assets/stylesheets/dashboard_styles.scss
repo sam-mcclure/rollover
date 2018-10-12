@@ -28,6 +28,14 @@
     display: flex;
     margin-top: 37px;
 
+    .post-button:hover {
+
+      .fa {
+        position: relative;
+        top: -4px;
+      }
+    }
+
 
     .post-buttons {
       display: flex;
@@ -41,10 +49,6 @@
         margin-bottom: 4px;
       }
 
-      .fa:hover {
-        position: relative;
-        top: -4px;
-      }
 
       .text-icon {
         color: #444;
@@ -80,7 +84,8 @@
       }
 
       .post-button {
-        padding: 20px 6px 20px 16px;
+        padding: 19px 6px 19px 16px;
+        cursor: pointer;
       }
 
       .inside-button {
