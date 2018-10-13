@@ -2,22 +2,25 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  padding: 13px 20px 15px 20px;
   border-radius: 3px;
   color: #444;
   min-height: 200px;
   width: 500px;
 
+  .hidden {
+    display: none;
+  }
+
 
   strong {
     font-weight: bold;
     font-size: 13px;
-    padding-bottom: 12px;
+    padding: 13px 20px 12px 20px;
   }
 
   .title {
     font-size: 36px;
-    padding-bottom: 10px;
+    padding: 13px 20px 0px 20px;
   }
 
   form {
@@ -28,6 +31,7 @@
       height: 100px;
       width: 100%;
       font-size: 14px;
+      padding: 15px 20px 12px 20px;
     }
 
 
@@ -35,7 +39,7 @@
       display: flex;
       justify-content: space-between;
       border-top: 1px solid #F2F1F1;
-      padding-top: 15px;
+      padding: 15px 20px 12px 20px;
 
       button:disabled {
         color: hsla(0,0%,100%,.5);
@@ -65,10 +69,11 @@
 
   .title-container{
     display: flex;
+    padding: 13px 20px 0px 20px;
 
     input {
       font-size: 48px;
-      width: 455px;
+      width: 375px;
     }
 
     p {
@@ -79,6 +84,11 @@
 
   .body-container {
     display: flex;
+    padding: 15px 20px 12px 20px;
+
+    textarea {
+      padding: 0 0 0 5px;
+    }
 
     p {
       padding-right: 5px;
@@ -90,4 +100,44 @@ strong {
   font-weight: bold;
   font-size: 13px;
   padding-bottom: 12px;
+}
+
+.media-file-input {
+  height: 190px;
+  width: 100%;
+  background-color: rgb(242, 242, 242);
+  border-top: 2px dashed #D6D6D6;
+  border-bottom: 2px dashed #D6D6D6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .fa {
+    font-size: 36px;
+  }
+
+  i {
+    color: rgb(152, 152, 152);
+    padding-left: 66px;
+    padding-bottom: 7px;
+  }
+
+  .fa-headphones {
+    padding-left: 89px;
+  }
+}
+
+.preview {
+
+  .preview-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    max-height: 250px;
+  }
 }
