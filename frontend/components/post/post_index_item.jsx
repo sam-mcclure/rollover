@@ -5,17 +5,30 @@ class PostIndexItem extends React.Component {
   constructor(props){
     super(props);
     this.state = {dropdown: 'hidden'};
+    this.toggleDropdown = this.toggleDropdown.bind(this);
+  }
+
+  toggleDropdown(){
+    if (this.state.dropdown === 'hidden'){
+      this.setState({dropdown: ''});
+    } else {
+      this.setState({dropdown: 'hidden'});
+    }
+
   }
 
   render({currentUser, post, deletePost} = this.props){
     const postButtons = (currentUser.id === post.authorId) ?
     <div className="dropdown-container">
-      <i className="fa fa-cog cog-icon"></i>
+      <i className="fa fa-cog cog-icon"
+        onClick={this.toggleDropdown}></i>
 
-      <div className="dropdown">
-        <Link to={`posts/${post.id}/edit`}><button>Edit</button></Link>
-        <button onClick={() => deletePost(post.id)}>Delete</button>
-      </div>
+      <ul className={`dropdown ${this.state.dropdown}`}>
+        <li><Link to={`posts/${post.id}/edit`}>
+          <button>Edit</button></Link></li>
+        <li><button 
+          onClick={() => deletePost(post.id)}>Delete</button></li>
+      </ul>
     </div> : '';
 
     const image = (post.photoUrl) ?
