@@ -54,3 +54,8 @@ button,
 input[type="submit"] {
   cursor: pointer;
 }
+
+video {
+  width: 320px;
+  height: 240px;
+}
