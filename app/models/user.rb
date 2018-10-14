@@ -22,7 +22,24 @@ class User < ApplicationRecord
 
   has_many :posts,
     foreign_key: :author_id,
-    class_name: :Post
+    class_name: :Post,
+    dependent: :destroy
+
+  has_many :follows,
+    foreign_key: :user_id,
+    class_name: :Follow
+
+  has_many :followed_users,
+    through: :follows,
+    source: :followed_user
+
+  has_many :user_follows,
+    foreign_key: :followed_user_id,
+    class_name: :Follow
+
+  has_many :followers,
+    through: :user_follows,
+    source: :followee
 
   attr_reader :password
 
