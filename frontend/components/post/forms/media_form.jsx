@@ -5,13 +5,13 @@ class MediaForm extends React.Component {
     super(props);
     this.state = {
       postType: this.props.postType,
-      body: '',
-      photo: '',
-      video: '',
-      audio: '',
-      preview: '',
-      previewState: 'hidden',
-      inputState: ''
+      body: this.props.body,
+      photo: this.props.photo,
+      video: this.props.video,
+      audio: this.props.audio,
+      preview: this.props.preview,
+      previewState: this.props.previewState,
+      inputState: this.props.inputState
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onFileChange = this.onFileChange.bind(this);
@@ -47,17 +47,21 @@ class MediaForm extends React.Component {
     formData.append('post[post_type]', this.state.postType);
     formData.append('post[body]', this.state.body);
 
-    if (this.state.photo) {
-      formData.append('post[photo]', this.state.photo);
-    }
-    if (this.state.video){
-      formData.append('post[video]', this.state.video);
-    }
-    if (this.state.audio){
-      formData.append('post[audio]', this.state.audio);
+    if (this.props.type === 'new') {
+      if (this.state.postType === 'photo') {
+        formData.append('post[photo]', this.state.photo);
+      }
+
+      if (this.state.postType === 'video'){
+        formData.append('post[video]', this.state.video);
+      }
+
+      if (this.state.postType === 'video'){
+        formData.append('post[audio]', this.state.audio);
+      }
     }
 
-    this.props.createPost(formData).then(this.props.closeModal);
+    this.props.action(formData, this.props.postId).then(this.props.closeModal);
   }
 
   render(){

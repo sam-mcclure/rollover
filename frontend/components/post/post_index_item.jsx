@@ -6,6 +6,7 @@ class PostIndexItem extends React.Component {
     super(props);
     this.state = {dropdown: 'hidden'};
     this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.clickEdit = this.clickEdit.bind(this);
   }
 
   toggleDropdown(){
@@ -17,6 +18,12 @@ class PostIndexItem extends React.Component {
 
   }
 
+  clickEdit() {
+    this.props.openModal(`edit-${this.props.post.postType}`, this.props.
+      post.id);
+    this.toggleDropdown();
+  }
+
   render({currentUser, post, deletePost, openModal} = this.props){
 
     const postButtons = (currentUser.id === post.authorId) ?
@@ -25,8 +32,7 @@ class PostIndexItem extends React.Component {
         onClick={this.toggleDropdown}></i>
 
       <ul className={`dropdown ${this.state.dropdown}`}>
-        <li onClick={() => openModal(`edit-${post.postType}`, post.id)
-          .then(this.toggleDropdown())}>
+        <li onClick={() => this.clickEdit()}>
           <button>Edit</button></li>
         <li onClick={() => deletePost(post.id)}>
           <button>Delete</button></li>

@@ -9,6 +9,7 @@ import PhotoFormContainer from '../post/forms/photo_form_container';
 import VideoFormContainer from '../post/forms/video_form_container';
 import AudioFormContainer from '../post/forms/audio_form_container';
 import EditTextContainer from '../post/forms/edit_text_container';
+import EditMediaContainer from '../post/forms/edit_media_container';
 
 const Modal = ({modal, exitModal}) => {
 
@@ -45,6 +46,11 @@ const Modal = ({modal, exitModal}) => {
     case 'edit-quote':
       component = <EditTextContainer postId={modal.postId} />;
     break;
+    case 'edit-photo':
+    case 'edit-video':
+    case 'edit-audio':
+      component = <EditMediaContainer postId={modal.postId} />;
+      break;
     default:
       return null;
   }
