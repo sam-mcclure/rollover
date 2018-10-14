@@ -17,17 +17,19 @@ class PostIndexItem extends React.Component {
 
   }
 
-  render({currentUser, post, deletePost} = this.props){
+  render({currentUser, post, deletePost, openModal} = this.props){
+
     const postButtons = (currentUser.id === post.authorId) ?
     <div className="dropdown-container">
       <i className="fa fa-cog cog-icon"
         onClick={this.toggleDropdown}></i>
 
       <ul className={`dropdown ${this.state.dropdown}`}>
-        <li><Link to={`posts/${post.id}/edit`}>
-          <button>Edit</button></Link></li>
-        <li><button 
-          onClick={() => deletePost(post.id)}>Delete</button></li>
+        <li onClick={() => openModal(`edit-${post.postType}`, post.id)
+          .then(this.toggleDropdown())}>
+          <button>Edit</button></li>
+        <li onClick={() => deletePost(post.id)}>
+          <button>Delete</button></li>
       </ul>
     </div> : '';
 

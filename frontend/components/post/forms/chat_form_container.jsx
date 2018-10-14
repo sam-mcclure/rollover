@@ -9,13 +9,16 @@ const msp = (state) => {
     postType: 'chat',
     titlePlaceholder: 'Title',
     bodyPlaceholder: "My dog: woof Me: I love you, too",
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    postId: null,
+    body: '',
+    title: ''
   };
 };
 
 const mdp = dispatch => {
   return {
-    createPost: post => dispatch(createPost(post)),
+    action: post => dispatch(createPost(post)),
     closeModal: () => dispatch(closeModal())
   };
 };

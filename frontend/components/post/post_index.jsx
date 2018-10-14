@@ -13,7 +13,8 @@ class PostIndex extends React.Component {
     const PostItems = reversed.map((post) => {
       return <PostIndexItem key={post.id} post={post}
         deletePost={this.props.deletePost}
-        currentUser={this.props.currentUser}/>;
+        currentUser={this.props.currentUser}
+        openModal={this.props.openModal}/>;
     });
 
     return (

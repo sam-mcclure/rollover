@@ -18,15 +18,17 @@ export const createPost = formData => {
     url: 'api/posts',
     data: formData,
     contentType: false,
-    processData: false 
+    processData: false
   });
 };
 
-export const updatePost = post => {
+export const updatePost = (formData, postId) => {
   return $.ajax({
     method: 'PATCH',
-    url: `api/posts/${post.id}`,
-    data: { post }
+    url: `api/posts/${postId}`,
+    data: formData,
+    contentType: false,
+    processData: false
   });
 };
 

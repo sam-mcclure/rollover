@@ -5,7 +5,9 @@ class TextForm extends React.Component {
     super(props);
     this.state = {
       postType: this.props.postType,
-      body: '', title: ''
+      body: this.props.body,
+      title: this.props.title,
+      postId: this.props.postId
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -22,7 +24,8 @@ class TextForm extends React.Component {
     formData.append('post[post_type]', this.state.postType);
     formData.append('post[title]', this.state.title);
     formData.append('post[body]', this.state.body);
-    this.props.createPost(formData).then(this.props.closeModal);
+
+    this.props.action(formData, this.state.postId).then(this.props.closeModal);
   }
 
   render(){

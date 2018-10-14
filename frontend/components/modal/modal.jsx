@@ -8,14 +8,16 @@ import TextFormContainer from '../post/forms/text_form_container';
 import PhotoFormContainer from '../post/forms/photo_form_container';
 import VideoFormContainer from '../post/forms/video_form_container';
 import AudioFormContainer from '../post/forms/audio_form_container';
+import EditTextContainer from '../post/forms/edit_text_container';
 
 const Modal = ({modal, exitModal}) => {
+
   if (!modal) {
     return null;
   }
   let component;
 
-  switch (modal) {
+  switch (modal.modal) {
     case 'chat':
       component = <ChatFormContainer />;
       break;
@@ -37,6 +39,12 @@ const Modal = ({modal, exitModal}) => {
     case 'audio':
       component = <AudioFormContainer />;
       break;
+    case 'edit-text':
+    case 'edit-chat':
+    case 'edit-link':
+    case 'edit-quote':
+      component = <EditTextContainer postId={modal.postId} />;
+    break;
     default:
       return null;
   }
@@ -49,17 +57,16 @@ const Modal = ({modal, exitModal}) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const msp = (state) => {
   return {
-    modal: state.ui.modal,
-    post: ownProps.post
+    modal: state.ui.modal
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mdp = dispatch => {
   return {
     exitModal: () => dispatch(closeModal())
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(msp, mdp)(Modal);

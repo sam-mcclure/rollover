@@ -9,13 +9,16 @@ const msp = (state) => {
     postType: 'link',
     titlePlaceholder: 'Type or paste a URL',
     bodyPlaceholder: "Add a description, if you like",
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    postId: null,
+    body: '',
+    title: ''
   };
 };
 
 const mdp = dispatch => {
   return {
-    createPost: post => dispatch(createPost(post)),
+    action: post => dispatch(createPost(post)),
     closeModal: () => dispatch(closeModal())
   };
 };
