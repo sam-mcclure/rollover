@@ -79,9 +79,6 @@ class SessionForm extends React.Component {
     </div>
     : '';
 
-    const demoUser = (this.props.formType === 'Log in') ?
-    <button onClick={this.demoLogin}>Demo Login</button> : "";
-
     const content = (this.props.formType === 'Log in' ||
       this.props.formType === 'Sign up') ?
       <form onSubmit={this.handleSubmit}>
@@ -100,13 +97,13 @@ class SessionForm extends React.Component {
         {this.renderErrors()}
 
         <button>{this.props.formType}</button>
-        {demoUser}
       </form> :
 
       <form>
         <Link to='/signup'><button>Get Started</button></Link>
         <Link to='/login'><button
           className='index-login'>Log In</button></Link>
+        <button onClick={this.demoLogin}>Demo Login</button>
       </form>;
 
 
