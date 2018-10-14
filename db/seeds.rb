@@ -27,3 +27,44 @@ post2 = Post.create!(
   title: "Happiness is a warm puppy.",
   body: "Charles Schulz"
 )
+
+post3 = Post.create!(
+  author_id: demo_user.id,
+  post_type: 'link',
+  title: "www.petfinder.com",
+  body: "This is my favorite place to find pets"
+)
+
+post4 = Post.create!(
+  author_id: demo_user.id,
+  post_type: 'chat',
+  title: "",
+  body: "My dog: woof Me: I love you, too"
+)
+
+post5 = Post.create!(
+  author_id: demo_user.id,
+  post_type: 'video',
+  title: "",
+  body: "Puppy at the beach!!"
+)
+video = File.open('app/assets/videos/Pexels Videos 2716.mp4')
+post5.video.attach(io: video, filename: 'Pexels Videos 2716.mp4')
+
+post6 = Post.create!(
+  author_id: demo_user.id,
+  post_type: 'audio',
+  title: "",
+  body: "I feel like my dog has the best bark"
+)
+audio = File.open('app/assets/audio/253754__arightwizard__dog-barking.mp3')
+post6.audio.attach(io: audio, filename: '253754__arightwizard__dog-barking.mp3')
+
+post7 = Post.create!(
+  author_id: demo_user.id,
+  post_type: 'photo',
+  title: "",
+  body: "This is the prettiest dog I've ever seen"
+)
+photo = File.open('app/assets/images/adorable-animal-breed-356378.jpg')
+post7.photo.attach(io: photo, filename: 'adorable-animal-breed-356378.jpg')
