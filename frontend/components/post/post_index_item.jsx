@@ -58,11 +58,17 @@ class PostIndexItem extends React.Component {
           src={post.authorPhotoUrl} />
         <div className={`post post-${post.postType}`}>
           <strong className="username">{post.authorUsername}</strong>
-          {post.title}
+
+        <div className="media-content">
           {image}
           {video}
           {audio}
-          {post.body}
+        </div>
+
+          <div className='post-body'>
+            <p>{post.title}</p>
+            <p>{post.body}</p>
+          </div>
           {postButtons}
         </div>
       </div>

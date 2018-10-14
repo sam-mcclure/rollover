@@ -14,7 +14,6 @@
     display: flex;
     flex-direction: column;
     margin-left: 20px;
-    padding: 15px;
     width: 523px;
 
     .cog-icon {
@@ -31,13 +30,14 @@
       display: flex;
       justify-content: flex-end;
       position: relative;
+      padding: 15px 20px 12px 20px;
     }
 
     .dropdown {
       position: absolute;
       display: block;
-      top: 42px;
-      right: -50px;
+      top: 56px;
+      right: -34px;
       display: flex;
       flex-direction: column;
       background-color: white;
@@ -63,6 +63,23 @@
 
     .hidden {
       display: none;
+    }
+
+    strong {
+      padding: 13px 20px 12px 20px;
+    }
+
+    .post-body {
+      padding: 6px 20px 12px 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .media-content {
+      padding-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
   }
