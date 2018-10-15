@@ -56,9 +56,10 @@ class User < ApplicationRecord
     user && user.is_password?(password) ? user : nil
   end
 
-  # def top_recommended_followers
-  #   User.where.not(id: Follow.select(:followed_user_id).where("user_id = ?", self.id)).where.not(id: self.id).limit(5)
-  # end
+  def unfollowed_users
+    User.where.not(id: self.id).where.not
+    (id: Follow.select(:followed_user_id).where(user_id: self.id)).limit(4)
+  end
 
   def password=(password)
     @password = password

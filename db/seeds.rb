@@ -15,6 +15,64 @@ demo_user = User.create!(
   password: 'password'
 )
 
+user2 = User.create!(
+  username: 'pug_life',
+  email: 'pug@pug.com',
+  password:'password'
+)
+photo2 = File.open('app/assets/images/pug.jpeg')
+user2.photo.attach(io: photo2, filename:'pug.jpeg')
+
+user3 = User.create!(
+  username: 'frenchie',
+  email: 'frenchie@frenchie.com',
+  password:'password'
+)
+photo3 = File.open('app/assets/images/frenchie.jpeg')
+user3.photo.attach(io: photo3, filename:'frenchie.jpeg')
+
+user4 = User.create!(
+  username: 'old_grey',
+  email: 'grey@grey.com',
+  password:'password'
+)
+photo4 = File.open('app/assets/images/grey.jpeg')
+user4.photo.attach(io: photo4, filename:'grey.jpeg')
+
+user5 = User.create!(
+  username: 'bear',
+  email: 'bear@bear.com',
+  password:'password'
+)
+photo5 = File.open('app/assets/images/hat.jpeg')
+user5.photo.attach(io: photo5, filename:'hat.jpeg')
+
+user6 = User.create!(
+  username: 'tiny',
+  email: 'tiny@tiny.com',
+  password:'password'
+)
+photo6 = File.open('app/assets/images/chi.jpeg')
+user6.photo.attach(io: photo6, filename:'chi.jpeg')
+
+user7 = User.create!(
+  username: 'shep',
+  email: 'shep@shep.com',
+  password:'password'
+)
+photo7 = File.open('app/assets/images/shep.jpeg')
+user7.photo.attach(io: photo7, filename:'shep.jpeg')
+
+follow1 = Follow.create!(
+  user_id: demo_user.id,
+  followed_user_id: user2.id
+)
+
+follow2 = Follow.create!(
+  user_id: demo_user.id,
+  followed_user_id: user3.id
+)
+
 post1 = Post.create!(
   author_id: demo_user.id,
   post_type: 'text',
@@ -30,14 +88,14 @@ post2 = Post.create!(
 )
 
 post3 = Post.create!(
-  author_id: demo_user.id,
+  author_id: user2.id,
   post_type: 'link',
   title: "www.petfinder.com",
   body: "This is my favorite place to find pets"
 )
 
 post4 = Post.create!(
-  author_id: demo_user.id,
+  author_id: user3.id,
   post_type: 'chat',
   title: "",
   body: "My dog: woof Me: I love you, too"
@@ -53,7 +111,7 @@ video = File.open('app/assets/videos/Pexels Videos 2716.mp4')
 post5.video.attach(io: video, filename: 'Pexels Videos 2716.mp4')
 
 post6 = Post.create!(
-  author_id: demo_user.id,
+  author_id: user5.id,
   post_type: 'audio',
   title: "",
   body: "I feel like my dog has the best bark"
