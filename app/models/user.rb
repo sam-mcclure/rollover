@@ -56,6 +56,10 @@ class User < ApplicationRecord
     user && user.is_password?(password) ? user : nil
   end
 
+  # def top_recommended_followers
+  #   User.where.not(id: Follow.select(:followed_user_id).where("user_id = ?", self.id)).where.not(id: self.id).limit(5)
+  # end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
