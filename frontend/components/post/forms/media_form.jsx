@@ -56,7 +56,7 @@ class MediaForm extends React.Component {
         formData.append('post[video]', this.state.video);
       }
 
-      if (this.state.postType === 'video'){
+      if (this.state.postType === 'audio'){
         formData.append('post[audio]', this.state.audio);
       }
     }

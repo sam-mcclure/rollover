@@ -1,4 +1,4 @@
-export const follow = (userId, followedUser) => {
+export const followUser = (userId, followedUser) => {
   return $.ajax({
     method: 'POST',
     url: `api/users/${userId}/follows`,
@@ -6,7 +6,7 @@ export const follow = (userId, followedUser) => {
   });
 };
 
-export const unfollow = (userId, followId) => {
+export const unfollowUser = (userId, followId) => {
   return $.ajax({
     method: 'DELETE',
     url: `api/users/${userId}/follows/${followId}`
