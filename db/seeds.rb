@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
 Post.delete_all
+Follow.delete_all
 
 demo_user = User.create!(
   username: 'guest',

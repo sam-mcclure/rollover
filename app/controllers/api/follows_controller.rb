@@ -4,7 +4,7 @@ class Api::FollowsController < ApplicationController
   def create
     @follow = Follow.new()
     @follow.user_id = current_user.id
-    @follow.followed_user_id = params[:id]
+    @follow.followed_user_id = params[:followedUser]
 
     if @follow.save
       render :show
@@ -15,7 +15,7 @@ class Api::FollowsController < ApplicationController
 
 
   def destroy
-    @follow = current_user.followed_users.find(params[:id])
+    @follow = Follow.find(params[:id])
     @follow.destroy!
     render :show
   end
