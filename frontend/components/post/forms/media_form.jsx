@@ -97,7 +97,7 @@ class MediaForm extends React.Component {
     (this.state.video || this.state.audio || this.state.photo) ?
       (this.state.photo) ?
       <img src={(this.state.preview)} /> : (this.state.video) ?
-        <video height="240" controls>
+        <video controls>
           <source src={this.state.preview} />
         </video> :
         <audio controls>

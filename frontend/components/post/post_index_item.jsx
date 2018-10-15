@@ -43,7 +43,7 @@ class PostIndexItem extends React.Component {
       <img src={post.photoUrl} /> : '';
 
     const video = (post.videoUrl) ?
-      <video height="240" controls>
+      <video controls>
         <source src={post.videoUrl} />
       </video> : '';
 
