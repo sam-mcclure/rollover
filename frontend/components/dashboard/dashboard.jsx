@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import HeaderComponent from '../header/header';
 import PostIndexContainer from '../post/post_index_container';
+import RecommendedFollowsContainer from
+'../follows/recommended_follows_container';
 import Form from '../post/forms/form';
 
 class Dashboard extends React.Component{
@@ -25,7 +27,10 @@ class Dashboard extends React.Component{
           <Form />
         </div>
 
-        <PostIndexContainer />
+        <div className="page-content">
+          <PostIndexContainer />
+          <RecommendedFollowsContainer />
+        </div>
       </div>
     );
   }

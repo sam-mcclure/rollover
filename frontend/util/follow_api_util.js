@@ -12,3 +12,11 @@ export const unfollowUser = (userId, followId) => {
     url: `api/users/${userId}/follows/${followId}`
   });
 };
+
+export const fetchRecommendedFollows = (userId, follow) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/users/${userId}/follows`,
+    data: { follow }
+  });
+};
