@@ -21,10 +21,12 @@ class PostIndexItem extends React.Component {
 
   unfollowAction(){
     this.props.unfollowUser(this.props.currentUser.id,
-      this.props.post.followId);
-    this.props.fetchPosts();
-    this.props.fetchRecommendedFollows(
-      this.props.currentUser.id, {recommended: true});
+      this.props.post.followId)
+      .then(() => this.props.fetchPosts())
+        .then(() => this.props.fetchRecommendedFollows(
+          this.props.currentUser.id, {recommended: true}));
+
+
   }
 
   clickEdit() {

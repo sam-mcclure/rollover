@@ -17,6 +17,7 @@ class RecommendedFollowsIndex extends React.Component {
         user={user}
         followUser={this.props.followUser}
         currentUser={this.props.currentUser}
+        fetchRecommendedFollows={this.props.fetchRecommendedFollows}
         fetchPosts={this.props.fetchPosts} /></li>;
     });
 
