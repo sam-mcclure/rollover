@@ -13,7 +13,7 @@ class RecommendedFollowsIndex extends React.Component {
 
   render(){
     const followItems = this.props.recommendedFollows.map((user) => {
-      return <li><RecommendedFollowsIndexItem key={user.id}
+      return <li key={user.id}><RecommendedFollowsIndexItem 
         user={user}
         followUser={this.props.followUser}
         currentUser={this.props.currentUser} /></li>;

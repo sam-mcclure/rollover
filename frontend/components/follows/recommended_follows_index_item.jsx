@@ -15,7 +15,7 @@ class RecommendedFollowsIndexItem extends React.Component {
         </div>
         <button
           onClick={() => followUser(currentUser.id, user.id)}>
-          <i class="fa fa-plus-square" aria-hidden="true"></i></button>
+          <i className="fa fa-plus-square" aria-hidden="true"></i></button>
       </div>
     );
   }

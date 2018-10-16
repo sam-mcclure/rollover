@@ -20,11 +20,12 @@ class Api::PostsController < ApplicationController
     else
       render json: @post.errors.full_messages, status: 422
     end
-
   end
 
   def index
-    @posts = Post.all
+    followed_ids = current_user.followed_user_ids
+    # @posts = Post.all
+    @posts = Post.where(author_id: current_user.id).or(Post.where(:author_id => followed_ids))
     render :index
   end
 
