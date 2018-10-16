@@ -178,15 +178,15 @@ post7.photo.attach(io: photo, filename: 'adorable-animal-breed-356378.jpg')
 post10 = Post.create!(
   author_id: user4.id,
   post_type: 'quote',
-  title: "The average dog is a nicer person than the average person",
-  body: "Andy Rooney"
+  title: "Dogs are not our whole life, but they make our lives whole.",
+  body: "Roger A. Caras"
 )
 
 post12 = Post.create!(
   author_id: user6.id,
   post_type: 'text',
   title: 'Too many chihuahuas?',
-  body: "If I have 10 chihuahuas, do you think I could still hold them all in my arms?"
+  body: "If I had 10 chihuahuas, do you think I could still hold them all in my arms?"
 )
 
 post13 = Post.create!(
