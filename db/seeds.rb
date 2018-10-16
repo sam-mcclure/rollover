@@ -63,6 +63,14 @@ user7 = User.create!(
 photo7 = File.open('app/assets/images/shep.jpeg')
 user7.photo.attach(io: photo7, filename:'shep.jpeg')
 
+user8 = User.create!(
+  username: 'goldie',
+  email: 'goldie@goldie.com',
+  password:'password'
+)
+photo8 = File.open('app/assets/images/goldie.jpeg')
+user8.photo.attach(io: photo8, filename:'goldie.jpeg')
+
 follow1 = Follow.create!(
   user_id: demo_user.id,
   followed_user_id: user2.id
@@ -71,6 +79,11 @@ follow1 = Follow.create!(
 follow2 = Follow.create!(
   user_id: demo_user.id,
   followed_user_id: user3.id
+)
+
+follow3 = Follow.create!(
+  user_id: demo_user.id,
+  followed_user_id: user5.id
 )
 
 post1 = Post.create!(

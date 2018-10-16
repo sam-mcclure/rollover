@@ -14,7 +14,7 @@
     padding-bottom: 12px;
   }
 
-  .page-content {
+  .main-content {
     display: flex;
   }
 
@@ -25,6 +25,13 @@
   .user-img {
     height: 64px;
     width: 64px;
+    display: block;
+    border-radius: 3px;
+  }
+
+  .rec-img {
+    height: 37px;
+    width: 37px;
     display: block;
     border-radius: 3px;
   }

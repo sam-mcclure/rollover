@@ -51,13 +51,18 @@ class User < ApplicationRecord
     end
   end
 
+  def unfollowed_users
+    User.where.not(id: self.id).where.not(id: Follow.select(:followed_user_id).where(user_id: self.id)).limit(4)
+  end
+
+  def find_follow(followee_id)
+    follow = Follow.where(user_id: followee_id).where(followed_user_id: self.id).select(:id).first
+    follow ? follow.id : nil
+  end
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil
-  end
-
-  def unfollowed_users
-    User.where.not(id: self.id).where.not(id: Follow.select(:followed_user_id).where(user_id: self.id)).limit(4)
   end
 
   def password=(password)

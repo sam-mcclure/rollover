@@ -7,13 +7,15 @@ class RecommendedFollowsIndexItem extends React.Component {
 
   render({user, followUser, currentUser} = this.props){
     return (
-      <div>
-        <img className='user-img'
-          src={user.photoUrl} />
-        <strong>{user.username}</strong>
+      <div className='rec-item'>
+        <div className='rec-info'>
+          <img className='rec-img'
+            src={user.photoUrl} />
+          <strong>{user.username}</strong>
+        </div>
         <button
           onClick={() => followUser(currentUser.id, user.id)}>
-          Follow</button>
+          <i class="fa fa-plus-square" aria-hidden="true"></i></button>
       </div>
     );
   }

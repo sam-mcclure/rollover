@@ -20,17 +20,23 @@ class Dashboard extends React.Component{
         <HeaderComponent button={button} clearErrors={this.props.clearErrors}
           headerClass='dashboard'/>
 
+        <div className="main-content">
+          <div className='content-left'>
+            <div className="user-bar">
+              <img className="user-img"
+                src={this.props.currentUser.photoUrl} />
+              <Form />
+            </div>
+            <PostIndexContainer />
+          </div>
 
-        <div className="user-bar">
-          <img className="user-img"
-            src={this.props.currentUser.photoUrl} />
-          <Form />
+          <div className='content-right'>
+            <RecommendedFollowsContainer />
+          </div>
         </div>
 
-        <div className="page-content">
-          <PostIndexContainer />
-          <RecommendedFollowsContainer />
-        </div>
+
+
       </div>
     );
   }

@@ -17,6 +17,7 @@ class PostIndex extends React.Component {
       return <PostIndexItem key={post.id} post={post}
         deletePost={this.props.deletePost}
         currentUser={this.props.currentUser}
+        unfollowUser={this.props.unfollowUser}
         openModal={this.props.openModal}/>;
     });
 

@@ -24,7 +24,7 @@ class PostIndexItem extends React.Component {
     this.toggleDropdown();
   }
 
-  render({currentUser, post, deletePost, openModal} = this.props){
+  render({currentUser, post, deletePost, openModal, unfollowUser} = this.props){
 
     const postButtons = (currentUser.id === post.authorId) ?
     <div className="dropdown-container">
@@ -38,6 +38,11 @@ class PostIndexItem extends React.Component {
           <button>Delete</button></li>
       </ul>
     </div> : '';
+
+    const followButtons = (currentUser.id === post.authorId) ?
+      '' : <button
+      onClick={() => unfollowUser(currentUser.id, post.followId)}>
+      Unfollow</button>;
 
     const image = (post.photoUrl) ?
       <img src={post.photoUrl} /> : '';
@@ -58,6 +63,7 @@ class PostIndexItem extends React.Component {
           src={post.authorPhotoUrl} />
         <div className={`post post-${post.postType}`}>
           <strong className="username">{post.authorUsername}</strong>
+          {followButtons}
 
         <div className="media-content">
           {image}

@@ -33,7 +33,7 @@ export const followUser = (userId, followedUser) => {
 
 export const unfollowUser = (userId, followId) => {
   return dispatch => {
-    return FollowAPIUtil.followUser(userId, followId)
+    return FollowAPIUtil.unfollowUser(userId, followId)
       .then(() => dispatch(removeFollow(followId)));
   };
 };
