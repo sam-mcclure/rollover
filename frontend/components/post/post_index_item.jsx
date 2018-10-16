@@ -37,6 +37,19 @@ class PostIndexItem extends React.Component {
 
   render({currentUser, post, deletePost, openModal, unfollowUser} = this.props){
 
+    let brokenText = post.body.split('/');
+    let commaText = brokenText.map((el) => {
+      return el.split(":");
+    });
+    
+    let chatContent = (post.postType === 'chat') ?
+      commaText.map((el, idx) => {
+        return <div key={post.id, idx} className="chat-line">
+          <strong>{el[0]}:</strong>
+          <p> {el[1]}</p>
+        </div>;
+      }) : '';
+
     const postButtons = (currentUser.id === post.authorId) ?
     <div className="dropdown-container">
       <i className="fa fa-cog cog-icon"
@@ -94,7 +107,7 @@ class PostIndexItem extends React.Component {
           <p className='post-body'>{post.body}</p>
       </div></div> :
 
-      (post.postType === 'text' || post.postType === 'chat') ?
+      (post.postType === 'text') ?
         <div className='post-text-content'>
           <p className='post-title'>{post.title}</p>
           <p className='post-body'>{post.body}</p>
@@ -111,6 +124,11 @@ class PostIndexItem extends React.Component {
         <div className='post-text-content'>
             <p className='quote-title'>&ldquo;{post.title}&rdquo;</p>
             <p className='post-body'>&mdash;  {post.body}</p>
+        </div> :
+
+      (post.postType === 'chat') ?
+        <div className='chat-content'>
+          {chatContent}
         </div>
       : '';
 
@@ -125,6 +143,7 @@ class PostIndexItem extends React.Component {
           </div>
 
           {content}
+
 
           {postButtons}
         </div>

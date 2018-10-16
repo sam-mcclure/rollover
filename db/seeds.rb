@@ -128,8 +128,7 @@ post4 = Post.create!(
   author_id: user3.id,
   post_type: 'chat',
   title: "",
-  body: "My dog: woof
-  Me: I love you, too"
+  body: "My dog: woof/Me: I love you, too"
 )
 
 post2 = Post.create!(
@@ -218,7 +217,7 @@ post14 = Post.create!(
   author_id: user8.id,
   post_type: 'chat',
   title: "",
-  body: "My dog: woof woof! Me: Don't start, I know I fed you!"
+  body: "My dog: woof woof!/Me: Don't start, I know I fed you!"
 )
 
 post8 = Post.create!(

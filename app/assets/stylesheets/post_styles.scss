@@ -25,6 +25,18 @@
       font-size: 14px;
     }
 
+    .chat-content {
+      padding: 6px 20px 12px 20px;
+
+      .chat-line {
+        display: flex;
+
+        strong {
+          margin-right: 5px;
+        }
+      }
+    }
+
     .quote-title {
       font-size: 36px;
       font-family: georgia, serif;

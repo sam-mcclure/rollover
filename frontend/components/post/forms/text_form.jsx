@@ -19,11 +19,17 @@ class TextForm extends React.Component {
   }
 
   handleSubmit(e){
-    e.preventDefault();
+    e.preventDefault();  
     const formData = new FormData();
     formData.append('post[post_type]', this.state.postType);
     formData.append('post[title]', this.state.title);
-    formData.append('post[body]', this.state.body);
+
+    if (this.state.postType === 'chat'){
+      const brokenLines = this.state.body.split("\n").join("/");
+      formData.append('post[body]', brokenLines);
+    } else {
+      formData.append('post[body]', this.state.body);
+    }
 
     this.props.action(formData, this.state.postId).then(this.props.closeModal);
   }
