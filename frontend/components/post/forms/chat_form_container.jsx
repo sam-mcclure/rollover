@@ -8,7 +8,7 @@ const msp = (state) => {
   return {
     postType: 'chat',
     titlePlaceholder: 'Title',
-    bodyPlaceholder: "My dog: woof Me: I love you, too",
+    bodyPlaceholder: "My dog: woof \nMe: I love you, too",
     currentUser: state.entities.users[state.session.id],
     postId: null,
     body: '',
