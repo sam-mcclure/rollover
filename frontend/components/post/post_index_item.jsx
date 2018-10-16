@@ -7,6 +7,7 @@ class PostIndexItem extends React.Component {
     this.state = {dropdown: 'hidden'};
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.clickEdit = this.clickEdit.bind(this);
+    this.unfollowAction = this.unfollowAction.bind(this);
   }
 
   toggleDropdown(){
@@ -16,6 +17,14 @@ class PostIndexItem extends React.Component {
       this.setState({dropdown: 'hidden'});
     }
 
+  }
+
+  unfollowAction(){
+    this.props.unfollowUser(this.props.currentUser.id,
+      this.props.post.followId);
+    this.props.fetchPosts();
+    this.props.fetchRecommendedFollows(
+      this.props.currentUser.id, {recommended: true});
   }
 
   clickEdit() {
@@ -40,9 +49,20 @@ class PostIndexItem extends React.Component {
     </div> : '';
 
     const followButtons = (currentUser.id === post.authorId) ?
-      '' : <button
-      onClick={() => unfollowUser(currentUser.id, post.followId)}>
-      Unfollow</button>;
+      '' :
+      <div className="user-dropdown">
+        <div className="user-dropdown-content">
+          <div className="user-dropdown-top">
+            <strong>{post.authorUsername}</strong>
+            <button className="unfollow"
+              onClick={() => this.unfollowAction()}>
+              Unfollow</button>
+          </div>
+
+            <img className="user-img"
+              src={post.authorPhotoUrl} />
+        </div>
+      </div>;
 
     const image = (post.photoUrl) ?
       <img src={post.photoUrl} /> : '';
@@ -62,8 +82,10 @@ class PostIndexItem extends React.Component {
         <img className="user-img"
           src={post.authorPhotoUrl} />
         <div className={`post post-${post.postType}`}>
-          <strong className="username">{post.authorUsername}</strong>
-          {followButtons}
+          <div className="follow-dropdown">
+            <strong className="username">{post.authorUsername}</strong>
+            {followButtons}
+          </div>
 
         <div className="media-content">
           {image}

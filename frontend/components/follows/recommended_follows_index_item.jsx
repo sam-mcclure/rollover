@@ -3,6 +3,12 @@ import React from 'react';
 class RecommendedFollowsIndexItem extends React.Component {
   constructor(props){
     super(props);
+    this.followAction = this.followAction.bind(this);
+  }
+
+  followAction(){
+    this.props.followUser(this.props.currentUser.id, this.props.user.id);
+    this.props.fetchPosts();
   }
 
   render({user, followUser, currentUser} = this.props){
@@ -14,7 +20,7 @@ class RecommendedFollowsIndexItem extends React.Component {
           <strong>{user.username}</strong>
         </div>
         <button
-          onClick={() => followUser(currentUser.id, user.id)}>
+          onClick={() => this.followAction()}>
           <i className="fa fa-plus-square" aria-hidden="true"></i></button>
       </div>
     );

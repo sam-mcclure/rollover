@@ -18,6 +18,8 @@ class PostIndex extends React.Component {
         deletePost={this.props.deletePost}
         currentUser={this.props.currentUser}
         unfollowUser={this.props.unfollowUser}
+        fetchPosts={this.props.fetchPosts}
+        fetchRecommendedFollows={this.props.fetchRecommendedFollows}
         openModal={this.props.openModal}/>;
     });
 

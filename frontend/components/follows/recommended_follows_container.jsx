@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import RecommendedFollowsIndex from './recommended_follows_index';
 import { followUser,
-  unfollowUser,
   fetchRecommendedFollows } from '../../actions/follow_actions';
+import { fetchPosts } from '../../actions/post_actions';
 
 const msp = state => {
   return {
@@ -16,10 +16,9 @@ const mdp = dispatch => {
   return {
     followUser: (userId, followedUser) =>
       dispatch(followUser(userId, followedUser)),
-    unfollowUser: (userId, followId) =>
-      dispatch(unfollowUser(userId, followId)),
     fetchRecommendedFollows: (userId, follow) =>
-      dispatch(fetchRecommendedFollows(userId, follow))
+      dispatch(fetchRecommendedFollows(userId, follow)),
+    fetchPosts: () => dispatch(fetchPosts())
   };
 };
 

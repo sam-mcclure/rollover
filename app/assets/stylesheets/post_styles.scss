@@ -16,6 +16,65 @@
     margin-left: 20px;
     width: 554px;
 
+    .username {
+      cursor: pointer;
+    }
+
+    .follow-dropdown:hover .user-dropdown{
+        display: block
+    }
+
+    .follow-dropdown {
+      position: relative;
+      padding: 13px 20px 12px 20px;
+      width: 100px;
+
+      .user-dropdown {
+        position: absolute;
+        display: none;
+        background-color: white;
+        width: 280px;
+        top: 37px;
+        left: -84px;
+        border-radius: 3px;
+        z-index: 5;
+
+
+        .user-dropdown-content {
+          display: flex;
+          flex-direction: column;
+
+          img {
+            padding-left: 100px;
+            padding-bottom: 10px;
+          }
+
+
+          .user-dropdown-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 10px 5px 10px
+          }
+
+          strong {
+            color: #529ecc;
+            padding-top: 10px;
+          }
+
+          .unfollow {
+            font-size: 13px;
+            color: white;
+            font-weight: bold;
+            padding: 5px 7px 7px 4px;
+            background-color: #529ecc;
+            border-radius: 2px;
+          }
+
+        }
+      }
+    }
+
     .cog-icon {
       color: #8f8f8f;
       height: 24px;
@@ -63,10 +122,6 @@
 
     .hidden {
       display: none;
-    }
-
-    strong {
-      padding: 13px 20px 12px 20px;
     }
 
     .post-body {
