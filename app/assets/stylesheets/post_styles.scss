@@ -16,6 +16,21 @@
     margin-left: 20px;
     width: 554px;
 
+    .post-title {
+      font-size: 36px;
+      padding-bottom: 8px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    .quote-title {
+      font-size: 36px;
+      font-family: georgia, serif;
+      padding-bottom: 6px;
+    }
+
     .username {
       cursor: pointer;
     }
@@ -124,7 +139,7 @@
       display: none;
     }
 
-    .post-body {
+    .post-text-content {
       padding: 6px 20px 12px 20px;
       display: flex;
       flex-direction: column;

@@ -227,5 +227,5 @@ post8 = Post.create!(
   title: "",
   body: "Everyone needs more corgi!"
 )
-postphoto8 = File.open('app/assets/images/animal-animal-photography-breed-976924.jpg')
-post8.photo.attach(io: postphoto8, filename: 'animal-animal-photography-breed-976924.jpg')
+postphoto8 = File.open('app/assets/images/animal-corgi-dog-58997.jpg')
+post8.photo.attach(io: postphoto8, filename: 'animal-corgi-dog-58997.jpg')

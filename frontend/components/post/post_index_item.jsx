@@ -66,18 +66,53 @@ class PostIndexItem extends React.Component {
         </div>
       </div>;
 
-    const image = (post.photoUrl) ?
-      <img src={post.photoUrl} /> : '';
+    const content = (post.postType === 'photo') ?
+    <div>
+      <div className='media-content'>
+      <img src={post.photoUrl} /></div>
+      <div className='post-text-content'>
+        <p className='post-body'>{post.body}</p>
+      </div></div> :
 
-    const video = (post.videoUrl) ?
-      <video controls>
-        <source src={post.videoUrl} />
-      </video> : '';
+      (post.postType === 'video') ?
+      <div>
+        <div className='media-content'>
+        <video controls>
+          <source src={post.videoUrl} />
+        </video></div>
+        <div className='post-text-content'>
+          <p className='post-body'>{post.body}</p>
+      </div></div> :
 
-    const audio = (post.audioUrl) ?
-      <audio controls>
-        <source src={post.audioUrl} />
-      </audio> : '';
+      (post.postType === 'audio') ?
+      <div>
+        <div className='media-content'>
+        <audio controls>
+          <source src={post.audioUrl} />
+        </audio></div>
+        <div className='post-text-content'>
+          <p className='post-body'>{post.body}</p>
+      </div></div> :
+
+      (post.postType === 'text' || post.postType === 'chat') ?
+        <div className='post-text-content'>
+          <p className='post-title'>{post.title}</p>
+          <p className='post-body'>{post.body}</p>
+        </div> :
+
+      (post.postType === 'link') ?
+      <div className='post-text-content'>
+        <a href={`https://${post.title}`}>
+          <p className='post-title'>{post.title}</p></a>
+        <p className='post-body'>{post.body}</p>
+      </div> :
+
+      (post.postType === 'quote') ?
+        <div className='post-text-content'>
+            <p className='quote-title'>&ldquo;{post.title}&rdquo;</p>
+            <p className='post-body'>&mdash;  {post.body}</p>
+        </div>
+      : '';
 
     return (
       <div className="post-container">
@@ -89,16 +124,8 @@ class PostIndexItem extends React.Component {
             {followButtons}
           </div>
 
-        <div className="media-content">
-          {image}
-          {video}
-          {audio}
-        </div>
+          {content}
 
-          <div className='post-body'>
-            <p>{post.title}</p>
-            <p>{post.body}</p>
-          </div>
           {postButtons}
         </div>
       </div>
