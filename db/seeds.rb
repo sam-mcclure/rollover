@@ -139,22 +139,6 @@ post2 = Post.create!(
   body: "Charles Schulz"
 )
 
-post11 = Post.create!(
-  author_id: user10.id,
-  post_type: 'audio',
-  title: "",
-  body: "I swear this is what's going on in my dog's head at all times"
-)
-audio2 = File.open('app/assets/audio/bensound-endlessmotion (1).mp3')
-post11.audio.attach(io: audio2, filename: 'bensound-endlessmotion (1).mp3')
-
-post14 = Post.create!(
-  author_id: user8.id,
-  post_type: 'chat',
-  title: "",
-  body: "My dog: woof woof! Me: Don't start, I know I fed you!"
-)
-
 post5 = Post.create!(
   author_id: demo_user.id,
   post_type: 'video',
@@ -163,6 +147,40 @@ post5 = Post.create!(
 )
 video = File.open('app/assets/videos/Pexels Videos 2716.mp4')
 post5.video.attach(io: video, filename: 'Pexels Videos 2716.mp4')
+
+post9 = Post.create!(
+  author_id: user2.id,
+  post_type: 'photo',
+  title: "",
+  body: "Me when it's cold outside"
+)
+postphoto9 = File.open('app/assets/images/adorable-animal-bed-374898.jpg')
+post9.photo.attach(io: postphoto9, filename: 'adorable-animal-bed-374898.jpg')
+
+post6 = Post.create!(
+  author_id: user5.id,
+  post_type: 'audio',
+  title: "",
+  body: "I feel like my dog has the best bark"
+)
+audio = File.open('app/assets/audio/253754__arightwizard__dog-barking.mp3')
+post6.audio.attach(io: audio, filename: '253754__arightwizard__dog-barking.mp3')
+
+post7 = Post.create!(
+  author_id: demo_user.id,
+  post_type: 'photo',
+  title: "",
+  body: "This is the prettiest dog I've ever seen"
+)
+photo = File.open('app/assets/images/adorable-animal-breed-356378.jpg')
+post7.photo.attach(io: photo, filename: 'adorable-animal-breed-356378.jpg')
+
+post10 = Post.create!(
+  author_id: user4.id,
+  post_type: 'quote',
+  title: "The average dog is a nicer person than the average person",
+  body: "Andy Rooney"
+)
 
 post12 = Post.create!(
   author_id: user6.id,
@@ -187,39 +205,21 @@ post15 = Post.create!(
 video2 = File.open('app/assets/videos/Dog in Car.mp4')
 post15.video.attach(io: video2, filename: 'Dog in Car.mp4')
 
-post9 = Post.create!(
-  author_id: user2.id,
-  post_type: 'photo',
-  title: "",
-  body: "Me when it's cold outside"
-)
-postphoto9 = File.open('app/assets/images/adorable-animal-bed-374898.jpg')
-post9.photo.attach(io: postphoto9, filename: 'adorable-animal-bed-374898.jpg')
-
-post10 = Post.create!(
-  author_id: user4.id,
-  post_type: 'quote',
-  title: "The average dog is a nicer person than the average person",
-  body: "Andy Rooney"
-)
-
-post6 = Post.create!(
-  author_id: user5.id,
+post11 = Post.create!(
+  author_id: user10.id,
   post_type: 'audio',
   title: "",
-  body: "I feel like my dog has the best bark"
+  body: "I swear this is what's going on in my dog's head at all times"
 )
-audio = File.open('app/assets/audio/253754__arightwizard__dog-barking.mp3')
-post6.audio.attach(io: audio, filename: '253754__arightwizard__dog-barking.mp3')
+audio2 = File.open('app/assets/audio/bensound-endlessmotion (1).mp3')
+post11.audio.attach(io: audio2, filename: 'bensound-endlessmotion (1).mp3')
 
-post7 = Post.create!(
-  author_id: demo_user.id,
-  post_type: 'photo',
+post14 = Post.create!(
+  author_id: user8.id,
+  post_type: 'chat',
   title: "",
-  body: "This is the prettiest dog I've ever seen"
+  body: "My dog: woof woof! Me: Don't start, I know I fed you!"
 )
-photo = File.open('app/assets/images/adorable-animal-breed-356378.jpg')
-post7.photo.attach(io: photo, filename: 'adorable-animal-breed-356378.jpg')
 
 post8 = Post.create!(
   author_id: user9.id,
