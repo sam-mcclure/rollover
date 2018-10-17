@@ -27,4 +27,9 @@ class Post < ApplicationRecord
   has_one_attached :photo
   has_one_attached :video
   has_one_attached :audio
+
+  def find_like(user_id)
+    like = Like.where(user_id: user_id).where(post_id: self.id).select(:id).first
+    like ? like.id : nil
+  end
 end
