@@ -20,6 +20,8 @@ class PostIndex extends React.Component {
         unfollowUser={this.props.unfollowUser}
         fetchPosts={this.props.fetchPosts}
         fetchRecommendedFollows={this.props.fetchRecommendedFollows}
+        likePost={this.props.likePost}
+        unlikePost={this.props.unlikePost}
         openModal={this.props.openModal}/>;
     });
 

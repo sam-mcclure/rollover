@@ -8,6 +8,8 @@ class PostIndexItem extends React.Component {
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.clickEdit = this.clickEdit.bind(this);
     this.unfollowAction = this.unfollowAction.bind(this);
+    this.like = this.like.bind(this);
+    this.unlike = this.unlike.bind(this);
   }
 
   toggleDropdown(){
@@ -35,13 +37,23 @@ class PostIndexItem extends React.Component {
     this.toggleDropdown();
   }
 
+  like(postId, userId){
+    this.props.likePost(postId, userId)
+      .then(() => this.props.fetchPosts());
+  }
+
+  unlike(postId, likeId){
+    this.props.unlikePost(postId, likeId)
+      .then(() => this.props.fetchPosts());
+  }
+
   render({currentUser, post, deletePost, openModal, unfollowUser} = this.props){
 
     let brokenText = post.body.split('/');
     let commaText = brokenText.map((el) => {
       return el.split(":");
     });
-    
+
     let chatContent = (post.postType === 'chat') ?
       commaText.map((el, idx) => {
         return <div key={post.id, idx} className="chat-line">
@@ -61,7 +73,22 @@ class PostIndexItem extends React.Component {
         <li onClick={() => deletePost(post.id)}>
           <button>Delete</button></li>
       </ul>
-    </div> : '';
+    </div> :
+
+    (post.likeId) ?
+
+      <div className="dropdown-container">
+      <i className="fa fa-heart" aria-hidden="true"
+        onClick={() => this.unlike(post.id, post.likeId)}></i>
+      </div>
+
+      :
+
+      <div className="dropdown-container">
+      <i className="fa fa-heart-o" aria-hidden="true"
+        onClick={() => this.like(post.id, currentUser.id)}></i>
+      </div>
+    ;
 
     const followButtons = (currentUser.id === post.authorId) ?
       '' :

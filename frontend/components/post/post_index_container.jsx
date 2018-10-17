@@ -4,6 +4,7 @@ import { fetchPosts, deletePost} from '../../actions/post_actions';
 import { unfollowUser,
   fetchRecommendedFollows } from '../../actions/follow_actions';
 import { openModal } from '../../actions/modal_actions';
+import { likePost, unlikePost } from '../../actions/like_actions';
 
 const msp = state => {
   return {
@@ -20,7 +21,10 @@ const mdp = dispatch => {
     unfollowUser: (userId, followId) =>
       dispatch(unfollowUser(userId, followId)),
     fetchRecommendedFollows: (userId, follow) =>
-      dispatch(fetchRecommendedFollows(userId, follow))
+      dispatch(fetchRecommendedFollows(userId, follow)),
+    likePost: (postId, userId) => dispatch(likePost(postId, userId)),
+    unlikePost: (postId, likeId) => dispatch(unlikePost(postId, likeId))
+
   };
 };
 

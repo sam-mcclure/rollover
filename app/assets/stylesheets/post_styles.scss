@@ -102,14 +102,25 @@
       }
     }
 
-    .cog-icon {
-      color: #8f8f8f;
+    .fa {
       height: 24px;
       width: 24px;
       font-size: 24px;
       cursor: pointer;
       text-align: right;
       padding-top: 12px;
+    }
+
+    .cog-icon {
+      color: #8f8f8f;
+    }
+
+    .fa-heart {
+      color: #d95e40;
+    }
+
+    .fa-heart-o {
+      color: #8f8f8f;
     }
 
     .dropdown-container {
