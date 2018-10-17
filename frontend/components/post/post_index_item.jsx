@@ -8,6 +8,7 @@ class PostIndexItem extends React.Component {
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.clickEdit = this.clickEdit.bind(this);
     this.unfollowAction = this.unfollowAction.bind(this);
+    this.followAction = this.followAction.bind(this);
     this.like = this.like.bind(this);
     this.unlike = this.unlike.bind(this);
   }
@@ -27,8 +28,14 @@ class PostIndexItem extends React.Component {
       .then(() => this.props.fetchPosts(this.props.postKeyword))
         .then(() => this.props.fetchRecommendedFollows(
           this.props.currentUser.id, {recommended: true}));
+  }
 
-
+  followAction(){
+    this.props.followUser(this.props.currentUser.id,
+      this.props.post.authorId)
+      .then(() => this.props.fetchPosts(this.props.postKeyword))
+        .then(() => this.props.fetchRecommendedFollows(
+          this.props.currentUser.id, {recommended: true}));
   }
 
   clickEdit() {
@@ -91,7 +98,7 @@ class PostIndexItem extends React.Component {
     ;
 
     const followButtons = (currentUser.id === post.authorId) ?
-      '' :
+      '' : (post.followId) ?
       <div className="user-dropdown">
         <div className="user-dropdown-content">
           <div className="user-dropdown-top">
@@ -99,6 +106,20 @@ class PostIndexItem extends React.Component {
             <button className="unfollow"
               onClick={() => this.unfollowAction()}>
               Unfollow</button>
+          </div>
+
+            <img className="user-img"
+              src={post.authorPhotoUrl} />
+        </div>
+      </div> :
+
+      <div className="user-dropdown">
+        <div className="user-dropdown-content">
+          <div className="user-dropdown-top">
+            <strong>{post.authorUsername}</strong>
+            <button className="unfollow"
+              onClick={() => this.followAction()}>
+              Follow</button>
           </div>
 
             <img className="user-img"
