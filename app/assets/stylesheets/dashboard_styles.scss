@@ -1,4 +1,5 @@
 
+
 .dashboard {
   background-color: #36465d;
   min-width: 100%;
@@ -16,10 +17,14 @@
 
   .main-content {
     display: flex;
+    margin-top: 56px;
   }
 
   .dashboard-header {
     border-bottom: 1px solid hsla(0,0%,100%,.13);
+    position: fixed;
+    background-color: #36465d;
+    z-index: 6;
   }
 
   .user-img {
