@@ -7,7 +7,7 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchPosts();
+    this.props.fetchPosts(this.props.postKeyword);
   }
 
   render () {
@@ -19,6 +19,7 @@ class PostIndex extends React.Component {
         currentUser={this.props.currentUser}
         unfollowUser={this.props.unfollowUser}
         fetchPosts={this.props.fetchPosts}
+        postKeyword={this.props.postKeyword}
         fetchRecommendedFollows={this.props.fetchRecommendedFollows}
         likePost={this.props.likePost}
         unlikePost={this.props.unlikePost}

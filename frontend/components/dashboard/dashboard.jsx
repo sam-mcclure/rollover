@@ -1,10 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import HeaderComponent from '../header/header';
 import PostIndexContainer from '../post/post_index_container';
-import RecommendedFollowsContainer from
-'../follows/recommended_follows_container';
 import Form from '../post/forms/form';
+import Layout from '../layout/layout';
 
 class Dashboard extends React.Component{
   constructor(props){
@@ -12,15 +9,11 @@ class Dashboard extends React.Component{
   }
 
   render(){
-    const button = <button className='header-button'
-      onClick={() => this.props.logout()}>Log Out</button>;
 
     return (
-      <div className="dashboard">
-        <HeaderComponent button={button} clearErrors={this.props.clearErrors}
-          headerClass='dashboard'/>
+      <Layout logout={this.props.logout}
+        clearErrors={this.props.clearErrors}>
 
-        <div className="main-content">
           <div className='content-left'>
             <div className="user-bar">
               <img className="user-img"
@@ -30,14 +23,8 @@ class Dashboard extends React.Component{
             <PostIndexContainer />
           </div>
 
-          <div className='content-right'>
-            <RecommendedFollowsContainer />
-          </div>
-        </div>
 
-
-
-      </div>
+      </Layout>
     );
   }
 

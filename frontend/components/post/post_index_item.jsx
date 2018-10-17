@@ -24,7 +24,7 @@ class PostIndexItem extends React.Component {
   unfollowAction(){
     this.props.unfollowUser(this.props.currentUser.id,
       this.props.post.followId)
-      .then(() => this.props.fetchPosts())
+      .then(() => this.props.fetchPosts(this.props.postKeyword))
         .then(() => this.props.fetchRecommendedFollows(
           this.props.currentUser.id, {recommended: true}));
 
@@ -39,12 +39,12 @@ class PostIndexItem extends React.Component {
 
   like(postId, userId){
     this.props.likePost(postId, userId)
-      .then(() => this.props.fetchPosts());
+      .then(() => this.props.fetchPosts(this.props.postKeyword));
   }
 
   unlike(postId, likeId){
     this.props.unlikePost(postId, likeId)
-      .then(() => this.props.fetchPosts());
+      .then(() => this.props.fetchPosts(this.props.postKeyword));
   }
 
   render({currentUser, post, deletePost, openModal, unfollowUser} = this.props){

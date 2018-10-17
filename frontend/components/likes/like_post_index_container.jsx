@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import PostIndex from './post_index';
-import { fetchPosts, deletePost} from '../../actions/post_actions';
+import PostIndex from '../post/post_index';
+import { fetchLikedPosts } from '../../actions/post_actions';
 import { unfollowUser,
   fetchRecommendedFollows } from '../../actions/follow_actions';
 import { openModal } from '../../actions/modal_actions';
@@ -10,14 +10,13 @@ const msp = state => {
   return {
     posts: Object.values(state.entities.posts),
     currentUser: state.entities.users[state.session.id],
-    postKeyword: ''
+    postKeyword: 'like'
   };
 };
 
 const mdp = dispatch => {
   return {
-    fetchPosts: () => dispatch(fetchPosts()),
-    deletePost: postId => dispatch(deletePost(postId)),
+    fetchPosts: (like) => dispatch(fetchLikedPosts(like)),
     openModal: (modal, postId) => dispatch(openModal(modal, postId)),
     unfollowUser: (userId, followId) =>
       dispatch(unfollowUser(userId, followId)),
