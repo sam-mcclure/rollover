@@ -18,6 +18,12 @@ class Post < ApplicationRecord
     foreign_key: :author_id,
     class_name: :User
 
+  has_many :likes
+
+  has_many :users_who_like,
+    through: :likes,
+    source: :user
+
   has_one_attached :photo
   has_one_attached :video
   has_one_attached :audio

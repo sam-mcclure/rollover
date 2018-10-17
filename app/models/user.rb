@@ -41,6 +41,12 @@ class User < ApplicationRecord
     through: :user_follows,
     source: :followee
 
+  has_many :likes
+
+  has_many :liked_posts,
+    through: :likes,
+    source: :post
+
   attr_reader :password
 
   def default_photo

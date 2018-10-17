@@ -8,6 +8,7 @@
 User.delete_all
 Post.delete_all
 Follow.delete_all
+Like.delete_all
 
 demo_user = User.create!(
   username: 'guest',
@@ -228,3 +229,13 @@ post8 = Post.create!(
 )
 postphoto8 = File.open('app/assets/images/animal-corgi-dog-58997.jpg')
 post8.photo.attach(io: postphoto8, filename: 'animal-corgi-dog-58997.jpg')
+
+like1 = Like.create!(
+  user_id: demo_user.id,
+  post_id: post9.id
+)
+
+like1 = Like.create!(
+  user_id: demo_user.id,
+  post_id: post6.id
+)
