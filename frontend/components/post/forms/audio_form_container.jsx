@@ -16,7 +16,8 @@ const msp = (state) => {
     preview: '',
     previewState: 'hidden',
     inputState: '',
-    type: 'new'
+    type: 'new',
+    loadingState: state.ui.loading
   };
 };
 

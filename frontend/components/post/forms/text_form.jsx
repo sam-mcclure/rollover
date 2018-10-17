@@ -19,7 +19,7 @@ class TextForm extends React.Component {
   }
 
   handleSubmit(e){
-    e.preventDefault();  
+    e.preventDefault();
     const formData = new FormData();
     formData.append('post[post_type]', this.state.postType);
     formData.append('post[title]', this.state.title);

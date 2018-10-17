@@ -1,5 +1,6 @@
 import React from 'react';
 import PostIndexItem from './post_index_item';
+import { BeatLoader } from 'react-spinners';
 
 class PostIndex extends React.Component {
   constructor(props){
@@ -26,6 +27,7 @@ class PostIndex extends React.Component {
         openModal={this.props.openModal}/>;
     });
 
+    
     return (
       <div className="post-index">
         <ul>

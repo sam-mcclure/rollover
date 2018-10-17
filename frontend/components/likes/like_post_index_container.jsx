@@ -10,7 +10,8 @@ const msp = state => {
   return {
     posts: Object.values(state.entities.posts),
     currentUser: state.entities.users[state.session.id],
-    postKeyword: 'like'
+    postKeyword: 'like',
+    loadingState: state.ui.loading
   };
 };
 

@@ -12,7 +12,8 @@ const msp = (state) => {
     currentUser: state.entities.users[state.session.id],
     postId: null,
     body: '',
-    title: ''
+    title: '',
+    loadingState: state.ui.loading
   };
 };
 

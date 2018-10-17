@@ -22,11 +22,11 @@ class Layout extends React.Component {
           <div className="main-content">
 
               {this.props.children}
-            
+
 
             <div className='content-right'>
-              <RecommendedFollowsContainer />
               <NavbarContainer />
+              <RecommendedFollowsContainer />
             </div>
           </div>
 

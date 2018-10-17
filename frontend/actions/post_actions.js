@@ -2,6 +2,7 @@ import * as PostApiUtil from '../util/post_api_util';
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const REMOVE_POST = 'REMOVE_POST';
+import { startLoading } from './loading_actions';
 
 const receiveAllPosts = (posts) => {
   return {
@@ -26,6 +27,7 @@ const removePost = (postId) => {
 
 export const fetchPosts = () => {
   return dispatch => {
+    dispatch(startLoading());
     return PostApiUtil.fetchPosts()
       .then((posts) => dispatch(receiveAllPosts(posts)));
   };
@@ -33,6 +35,7 @@ export const fetchPosts = () => {
 
 export const fetchLikedPosts = (like) => {
   return dispatch => {
+    dispatch(startLoading());
     return PostApiUtil.fetchLikedPosts(like)
       .then((posts) => dispatch(receiveAllPosts(posts)));
   };
@@ -47,6 +50,7 @@ export const fetchPost = (postId) => {
 
 export const createPost = (post) => {
   return dispatch => {
+    dispatch(startLoading());
     return PostApiUtil.createPost(post)
       .then((postRes) => dispatch(receivePost(postRes)));
   };

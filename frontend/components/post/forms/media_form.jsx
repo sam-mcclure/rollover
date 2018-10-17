@@ -1,4 +1,5 @@
 import React from 'react';
+import { BeatLoader } from 'react-spinners';
 
 class MediaForm extends React.Component {
   constructor(props){
@@ -111,40 +112,52 @@ class MediaForm extends React.Component {
           <source src={this.state.preview} />
         </audio> : '';
 
-    return(
-      <div className={`form form-${this.props.postType}`}>
-        <strong>{this.props.currentUser.username}</strong>
-        <form onSubmit={this.handleSubmit}>
+    if (this.props.loadingState) {
+      return (
+        <div>
+          <BeatLoader
+            color={'rgb(172, 178, 187)'}/>
+        </div>
+        );
+    } else {
+
+      return(
+        <div className={`form form-${this.props.postType}`}>
+          <strong>{this.props.currentUser.username}</strong>
+          <form onSubmit={this.handleSubmit}>
 
 
-          <div className={`media-file-input ${this.state.inputState}`}
-            onClick={() => document.getElementById('file').click()}>
-            <input type="file" accept={acceptTypes}
-              id="file" className="hidden"
-              onChange={this.onFileChange(this.state.postType)} />
-            {uploadText}
-            <strong>:)</strong>
-          </div>
+            <div className={`media-file-input ${this.state.inputState}`}
+              onClick={() => document.getElementById('file').click()}>
+              <input type="file" accept={acceptTypes}
+                id="file" className="hidden"
+                onChange={this.onFileChange(this.state.postType)} />
+              {uploadText}
+              <strong>:)</strong>
+            </div>
 
-          <div className={`preview ${this.state.previewState}`}>
+            <div className={`preview ${this.state.previewState}`}>
 
-          <div className="preview-content">{mediaPreview}</div>
+            <div className="preview-content">{mediaPreview}</div>
 
 
-          <textarea placeholder="Add a caption, if you like"
-            value={this.state.body}
-            onChange={this.update('body')} />
-          </div>
+            <textarea placeholder="Add a caption, if you like"
+              value={this.state.body}
+              onChange={this.update('body')} />
+            </div>
 
-          <div className="form-buttons">
-            <button className="close"
-              onClick={this.props.closeModal}>Close</button>
-            {postButton}
-          </div>
+            <div className="form-buttons">
+              <button className="close"
+                onClick={this.props.closeModal}>Close</button>
+              {postButton}
+            </div>
 
-        </form>
-      </div>
-    );
+          </form>
+        </div>
+      );
+    }
+
+
   }
 
 }
