@@ -5,6 +5,14 @@ export const fetchPosts = () => {
   });
 };
 
+export const fetchLikedPosts = (like) => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/posts',
+    data: { like }
+  });
+};
+
 export const fetchPost = postId => {
   return $.ajax({
     method: 'GET',

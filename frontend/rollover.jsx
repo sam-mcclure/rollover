@@ -5,7 +5,7 @@ import Root from './components/Root';
 
 
 //Testing
-
+import { fetchLikedPosts } from './actions/post_actions';
 //Testing
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //testing
-
+  window.fetchLikedPosts = fetchLikedPosts;
+  window.dispatch = store.dispatch;
   //testing
 
   const root = document.getElementById('root');

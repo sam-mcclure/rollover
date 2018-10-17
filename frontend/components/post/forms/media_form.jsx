@@ -23,6 +23,12 @@ class MediaForm extends React.Component {
     };
   }
 
+  disableSubmit(){
+    return (e) => {
+      e.target.setAttribute('disabled', 'disabled');
+    };
+  }
+
   onFileChange(field){
     //https://gist.github.com/hartzis/0b77920380736f98e4f9
     return (e) =>{
@@ -70,7 +76,8 @@ class MediaForm extends React.Component {
     this.state.audio === '') ?
       <button className="post"
         disabled>Post</button> :
-        <button className='post'>Post</button>;
+        <button className='post'
+          onClick={this.disableSubmit}>Post</button>;
 
     const acceptTypes = (this.state.postType === 'photo') ?
       ".jpg, .jpeg, .png, .gif" : (this.state.postType === 'video') ?
