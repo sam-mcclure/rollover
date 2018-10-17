@@ -1,7 +1,7 @@
 export const likePost = (postId, userId) => {
   return $.ajax({
     method: 'POST',
-    url: `api/posts/${postId}`
+    url: `api/posts/${postId}/likes`
   });
 };
 
