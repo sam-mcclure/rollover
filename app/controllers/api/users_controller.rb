@@ -16,8 +16,9 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    render :show
+
+    @posts = Post.where('author_id = ?', params[:id])
+    render 'api/posts/index'
   end
 
   private

@@ -8,7 +8,12 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchPosts(this.props.postKeyword);
+    if (this.props.type) {
+      this.props.fetchPosts(this.props.userId);
+    } else {
+      this.props.fetchPosts(this.props.postKeyword);
+    }
+
   }
 
   render () {
