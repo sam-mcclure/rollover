@@ -43,9 +43,9 @@ class UserShow extends React.Component {
       Follow</button>) : '';
 
     const headerContent = (this.props.user) ?
-    <div>
+    <div className="user-show">
       {followButtons}
-      <img className='user-img'
+      <img className='show-img'
         src={this.props.user.photoUrl}/>
       <h2>{this.props.user.username}</h2>
     </div> : '';
