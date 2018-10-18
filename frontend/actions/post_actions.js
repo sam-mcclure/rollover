@@ -27,7 +27,6 @@ const removePost = (postId) => {
 
 export const fetchPosts = () => {
   return dispatch => {
-    dispatch(startLoading());
     return PostApiUtil.fetchPosts()
       .then((posts) => dispatch(receiveAllPosts(posts)));
   };
@@ -35,8 +34,14 @@ export const fetchPosts = () => {
 
 export const fetchLikedPosts = (like) => {
   return dispatch => {
-    dispatch(startLoading());
     return PostApiUtil.fetchLikedPosts(like)
+      .then((posts) => dispatch(receiveAllPosts(posts)));
+  };
+};
+
+export const fetchUserPosts = (userId) => {
+  return dispatch => {
+    return PostApiUtil.fetchUserPosts(userId)
       .then((posts) => dispatch(receiveAllPosts(posts)));
   };
 };

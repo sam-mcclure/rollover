@@ -27,6 +27,8 @@ class Api::PostsController < ApplicationController
     if params[:like]
       liked_posts = current_user.liked_post_ids
       @posts = Post.where(:id => liked_posts)
+    elsif params[:userId]
+      @posts = Post.where('author_id = ?', params[:userId])
     else
       followed_ids = current_user.followed_user_ids
       @posts = Post.where(author_id: current_user.id).or(Post.where(:author_id => followed_ids))

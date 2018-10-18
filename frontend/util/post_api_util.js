@@ -13,6 +13,14 @@ export const fetchLikedPosts = (like) => {
   });
 };
 
+export const fetchUserPosts = (userId) => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/posts',
+    data: { userId }
+  });
+};
+
 export const fetchPost = postId => {
   return $.ajax({
     method: 'GET',
