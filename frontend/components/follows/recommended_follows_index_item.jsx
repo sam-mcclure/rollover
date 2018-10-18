@@ -18,8 +18,8 @@ class RecommendedFollowsIndexItem extends React.Component {
     return (
       <div className='rec-item'>
         <div className='rec-info'>
-          <img className='rec-img'
-            src={user.photoUrl} />
+          <Link to={`/users/${user.id}`}><img className='rec-img'
+            src={user.photoUrl} /></Link>
           <Link to={`/users/${user.id}`}><strong>{user.username}
           </strong></Link>
         </div>

@@ -5,7 +5,7 @@ import Root from './components/Root';
 
 
 //Testing
-import { fetchUser } from './actions/user_actions';
+
 //Testing
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,8 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //testing
-  window.dispatch = store.dispatch;
-  window.fetchUser = fetchUser;
+
   //testing
 
   const root = document.getElementById('root');

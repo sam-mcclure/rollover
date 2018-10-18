@@ -199,8 +199,9 @@ class PostIndexItem extends React.Component {
 
     return (
       <div className="post-container">
+        <Link to={`/users/${post.authorId}`}>
         <img className="user-img"
-          src={post.authorPhotoUrl} />
+          src={post.authorPhotoUrl} /></Link>
         <div className={`post post-${post.postType}`}>
           <div className="follow-dropdown">
             <Link to={`/users/${post.authorId}`}>
