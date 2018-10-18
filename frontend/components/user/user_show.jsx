@@ -15,6 +15,24 @@ class UserShow extends React.Component {
     this.props.fetchUser(this.props.userId);
   }
 
+  shouldComponentUpdate(nextProps, nextState){
+    if (!this.props.user){
+      return true;
+    }
+
+    if(this.props.userId !== nextProps.userId ||
+      this.props.user.followId !== nextProps.user.followId){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  componentDidUpdate(){
+    this.props.fetchUser(this.props.userId)
+      .then(() => this.props.fetchPosts(
+        this.props.userId, {posts: 'user'}));
+  }
 
   unfollowAction(){
     this.props.unfollowUser(this.props.currentUser.id,

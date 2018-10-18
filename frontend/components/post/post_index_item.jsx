@@ -118,7 +118,8 @@ class PostIndexItem extends React.Component {
       <div className="user-dropdown">
         <div className="user-dropdown-content">
           <div className="user-dropdown-top">
-            <strong>{post.authorUsername}</strong>
+            <Link to={`/users/${post.authorId}`}>
+              <strong>{post.authorUsername}</strong></Link>
             <button className="unfollow"
               onClick={() => this.unfollowAction()}>
               Unfollow</button>
@@ -202,7 +203,9 @@ class PostIndexItem extends React.Component {
           src={post.authorPhotoUrl} />
         <div className={`post post-${post.postType}`}>
           <div className="follow-dropdown">
-            <strong className="username">{post.authorUsername}</strong>
+            <Link to={`/users/${post.authorId}`}>
+              <strong className="username">{post.authorUsername}</strong>
+            </Link>
             {followButtons}
           </div>
 

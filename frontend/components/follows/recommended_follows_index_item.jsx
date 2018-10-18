@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class RecommendedFollowsIndexItem extends React.Component {
   constructor(props){
@@ -19,7 +20,8 @@ class RecommendedFollowsIndexItem extends React.Component {
         <div className='rec-info'>
           <img className='rec-img'
             src={user.photoUrl} />
-          <strong>{user.username}</strong>
+          <Link to={`/users/${user.id}`}><strong>{user.username}
+          </strong></Link>
         </div>
         <button
           onClick={() => this.followAction()}>
