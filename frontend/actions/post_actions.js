@@ -39,9 +39,9 @@ export const fetchLikedPosts = (like) => {
   };
 };
 
-export const fetchUserPosts = (userId) => {
+export const fetchUserPosts = (userId, post) => {
   return dispatch => {
-    return PostApiUtil.fetchUserPosts(userId)
+    return PostApiUtil.fetchUserPosts(userId, post)
       .then((posts) => dispatch(receiveAllPosts(posts)));
   };
 };

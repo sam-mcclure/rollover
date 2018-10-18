@@ -17,8 +17,12 @@ class Api::UsersController < ApplicationController
 
   def show
 
-    @posts = Post.where('author_id = ?', params[:id])
-    render 'api/posts/index'
+    if params[:posts]
+      @posts = Post.where('author_id = ?', params[:id])
+      render 'api/posts/index'
+    else
+      @user = User.find(params[:id])
+    end
   end
 
   private

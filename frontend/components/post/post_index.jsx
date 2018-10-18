@@ -9,12 +9,13 @@ class PostIndex extends React.Component {
 
   componentDidMount(){
     if (this.props.type) {
-      this.props.fetchPosts(this.props.userId);
+      this.props.fetchPosts(this.props.userId, {posts: 'user'});
     } else {
       this.props.fetchPosts(this.props.postKeyword);
     }
 
   }
+
 
   render () {
     const reversed = this.props.posts.reverse();

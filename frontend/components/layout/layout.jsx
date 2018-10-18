@@ -1,8 +1,6 @@
 import React from 'react';
 import HeaderComponent from '../header/header';
-import RecommendedFollowsContainer from
-'../follows/recommended_follows_container';
-import NavbarContainer from '../navbar/navbar_container';
+
 
 class Layout extends React.Component {
   constructor(props){
@@ -20,14 +18,7 @@ class Layout extends React.Component {
           headerClass='dashboard'/>
 
           <div className="main-content">
-
               {this.props.children}
-
-
-            <div className='content-right'>
-              <NavbarContainer />
-              <RecommendedFollowsContainer />
-            </div>
           </div>
 
       </div>

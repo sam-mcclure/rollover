@@ -22,6 +22,7 @@ class PostIndexItem extends React.Component {
 
   }
 
+
   unfollowAction(){
     this.props.unfollowUser(this.props.currentUser.id,
       this.props.post.followId)

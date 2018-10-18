@@ -10,7 +10,7 @@ const msp = (state, ownProps) => {
   return {
     posts: Object.values(state.entities.posts),
     currentUser: state.entities.users[state.session.id],
-    type: "user",
+    type: "userPosts",
     loadingState: state.ui.loading,
     userId: ownProps.userId
   };
@@ -18,7 +18,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
   return {
-    fetchPosts: (id) => dispatch(fetchUserPosts(id)),
+    fetchPosts: (id, posts) => dispatch(fetchUserPosts(id, posts)),
     openModal: (modal, postId) => dispatch(openModal(modal, postId)),
     followUser: (userId, followedUser) =>
       dispatch(followUser(userId, followedUser)),
