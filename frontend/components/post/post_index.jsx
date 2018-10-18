@@ -5,6 +5,7 @@ import { BeatLoader } from 'react-spinners';
 class PostIndex extends React.Component {
   constructor(props){
     super(props);
+    this.state = {nextUserId: null};
   }
 
   componentDidMount(){
@@ -31,6 +32,9 @@ class PostIndex extends React.Component {
         fetchRecommendedFollows={this.props.fetchRecommendedFollows}
         likePost={this.props.likePost}
         unlikePost={this.props.unlikePost}
+        type={this.props.type}
+        fetchUser={this.props.fetchUser}
+        userId={this.props.userId}
         openModal={this.props.openModal}/>;
     });
 

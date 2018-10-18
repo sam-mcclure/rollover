@@ -19,24 +19,39 @@ class PostIndexItem extends React.Component {
     } else {
       this.setState({dropdown: 'hidden'});
     }
-
   }
 
 
   unfollowAction(){
-    this.props.unfollowUser(this.props.currentUser.id,
-      this.props.post.followId)
-      .then(() => this.props.fetchPosts(this.props.postKeyword))
-        .then(() => this.props.fetchRecommendedFollows(
-          this.props.currentUser.id, {recommended: true}));
+    if (this.props.type){
+      this.props.unfollowUser(this.props.currentUser.id,
+        this.props.post.followId)
+        .then(() => this.props.fetchUser(this.props.userId))
+          .then(() => this.props.fetchPosts(
+            this.props.userId, {posts: 'user'}));
+    } else {
+      this.props.unfollowUser(this.props.currentUser.id,
+        this.props.post.followId)
+        .then(() => this.props.fetchPosts(this.props.postKeyword))
+          .then(() => this.props.fetchRecommendedFollows(
+            this.props.currentUser.id, {recommended: true}));
+    }
   }
 
   followAction(){
+    if (this.props.type){
+      this.props.followUser(this.props.currentUser.id,
+        this.props.post.authorId)
+        .then(() => this.props.fetchUser(this.props.userId))
+          .then(() => this.props.fetchPosts(
+            this.props.userId, {posts: 'user'}));
+    } else {
     this.props.followUser(this.props.currentUser.id,
       this.props.post.authorId)
       .then(() => this.props.fetchPosts(this.props.postKeyword))
         .then(() => this.props.fetchRecommendedFollows(
           this.props.currentUser.id, {recommended: true}));
+    }
   }
 
   clickEdit() {

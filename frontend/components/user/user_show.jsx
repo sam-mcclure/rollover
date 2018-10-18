@@ -15,16 +15,19 @@ class UserShow extends React.Component {
     this.props.fetchUser(this.props.userId);
   }
 
+
   unfollowAction(){
     this.props.unfollowUser(this.props.currentUser.id,
       this.props.user.followId)
-      .then(() => this.props.fetchUser(this.props.userId));
+      .then(() => this.props.fetchUser(this.props.userId))
+        .then(() => this.props.fetchPosts(this.props.userId, {posts: 'user'}));
   }
 
   followAction(){
     this.props.followUser(this.props.currentUser.id,
       this.props.userId)
-      .then(() => this.props.fetchUser(this.props.userId));
+      .then(() => this.props.fetchUser(this.props.userId))
+        .then(() => this.props.fetchPosts(this.props.userId, {posts: 'user'}));
   }
 
   render(){
@@ -45,8 +48,8 @@ class UserShow extends React.Component {
     const headerContent = (this.props.user) ?
     <div className="user-show">
       {followButtons}
-      <img className='show-img'
-        src={this.props.user.photoUrl}/>
+      <div className='circle'><img className='show-img'
+        src={this.props.user.photoUrl}/></div>
       <h2>{this.props.user.username}</h2>
     </div> : '';
 
