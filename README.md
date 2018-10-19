@@ -134,6 +134,10 @@ componentDidUpdate(){
 }
 ```
 
+## Project Design
+
+Since there were only two weeks allotted for this project, the focus was to provide users with features that work seamlessly, without bugs. Though tumblr certainly has more capabilities, I wanted to make sure that everything I had worked exactly how it should. That way, new features can be added later without having to worry about issues coming up from previous features. 
+
 
 ## Future Features
 
