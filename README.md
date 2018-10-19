@@ -40,6 +40,16 @@ const content = (post.postType === 'photo') ?
   </div></div> :
 ```
 
+And a quote post renders with quotes around the title content and a dash before the body:
+
+```js
+(post.postType === 'quote') ?
+  <div className='post-text-content'>
+      <p className='quote-title'>&ldquo;{post.title}&rdquo;</p>
+      <p className='post-body'>&mdash;  {post.body}</p>
+  </div> :
+  ```
+
 ### Making Posts
 
 Users can make posts of 7 different types: text, photo, quote, link, chat, audio, and video by clicking on a button in the dashboard:
@@ -75,6 +85,21 @@ onFileChange(field){
   };
 }
 ```
+
+Text-based forms have a title and body section, with changing placeholder text:
+
+![](app/assets/images/text_form.png)
+
+All forms have the post button disabled until you either type something in or attach a file. This prevents empty posts from being made while still allowing posts to optionally have either a title, body, or media file.
+
+This is accomplished by checking to see if everything in the state is empty or not:
+
+```js
+const postButton = (this.state.body === '' && this.state.title === '') ?
+<button className="post"
+  disabled>Post</button> :
+  <button className='post'>Post</button>;
+  ```
 
 ### Following Users
 
@@ -136,7 +161,7 @@ componentDidUpdate(){
 
 ## Project Design
 
-Since there were only two weeks allotted for this project, the focus was to provide users with features that work seamlessly, without bugs. Though tumblr certainly has more capabilities, I wanted to make sure that everything I had worked exactly how it should. That way, new features can be added later without having to worry about issues coming up from previous features. 
+Since there were only two weeks allotted for this project, the focus was to provide users with features that work seamlessly, without bugs. Though tumblr certainly has more capabilities, I wanted to make sure that everything I had worked exactly how it should. That way, new features can be added later without having to worry about issues coming up from previous features.
 
 
 ## Future Features
