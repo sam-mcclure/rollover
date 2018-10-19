@@ -14,7 +14,7 @@ A user's dashboard contains posts that they've made, as well as posts made by pe
 
 ![](app/assets/images/dashboard.png)
 
-This was accomplished by querying the database for posts from the current user and the current user's followed users:
+Gathering the post data was accomplished by querying the database for posts from the current user and the current user's followed users:
 
 ```ruby
 def index
@@ -28,7 +28,7 @@ def index
 end
 ```
 
-Posts are all kept in the same table and are then conditionally rendered with different formats based on what kind of post it is. For example, a photo post renders with an image sourced to the post's photoUrl:
+To keep code DRY, posts are all saved in the same table with a postType and are then conditionally rendered with different formats based on what kind of post it is. For example, a photo post renders with an image sourced to the post's photoUrl:
 
 ```js
 const content = (post.postType === 'photo') ?
@@ -46,7 +46,7 @@ Users can make posts of 7 different types: text, photo, quote, link, chat, audio
 
 ![](app/assets/images/post_buttons.png)
 
-The buttons open up a form in a modal. There are two different kinds of forms, depending on if the post is text-based or media-based, and each post type has some unique form styling.
+The buttons open up a form in a modal. There are two different kinds of forms, depending on if the post is text-based or media-based. Each post type has some unique styling for the form, as well.
 For the media forms, there is first a styled file input:
 
 ![](app/assets/images/media_file.png)
@@ -110,6 +110,29 @@ Posts that weren't made by the current user can be liked or unliked from the das
 Users can click on another user's name anywhere to go to their show page, or on posts in the navbar to see their own show page. These pages show all of the posts made by a user, as well as an option to follow/unfollow them:
 
 ![](app/assets/images/user_show.png)
+
+The feed will properly fetch new posts, even if moving from show page to show page, by checking it's props to see if a new user has been passed in:
+
+```js
+shouldComponentUpdate(nextProps, nextState){
+  if (!this.props.user){
+    return true;
+  }
+
+  if(this.props.userId !== nextProps.userId ||
+    this.props.user.followId !== nextProps.user.followId){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+componentDidUpdate(){
+  this.props.fetchUser(this.props.userId)
+    .then(() => this.props.fetchPosts(
+      this.props.userId, {posts: 'user'}));
+}
+```
 
 
 ## Future Features
