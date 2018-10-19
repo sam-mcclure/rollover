@@ -31,7 +31,6 @@ class MediaForm extends React.Component {
   }
 
   onFileChange(field){
-    //https://gist.github.com/hartzis/0b77920380736f98e4f9
     return (e) =>{
       const reader = new FileReader();
       const file = e.target.files[0];

@@ -23,7 +23,6 @@ class Api::PostsController < ApplicationController
   end
 
   def index
-
     if params[:like]
       liked_posts = current_user.liked_post_ids
       @posts = Post.where(:id => liked_posts)
@@ -31,7 +30,6 @@ class Api::PostsController < ApplicationController
       followed_ids = current_user.followed_user_ids
       @posts = Post.where(author_id: current_user.id).or(Post.where(:author_id => followed_ids))
     end
-    render :index
   end
 
   def show
