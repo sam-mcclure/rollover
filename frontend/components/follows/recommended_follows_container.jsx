@@ -16,8 +16,8 @@ const mdp = dispatch => {
   return {
     followUser: (userId, followedUser) =>
       dispatch(followUser(userId, followedUser)),
-    fetchRecommendedFollows: (userId, follow) =>
-      dispatch(fetchRecommendedFollows(userId, follow)),
+    fetchRecommendedFollows: (userId) =>
+      dispatch(fetchRecommendedFollows(userId)),
     fetchPosts: () => dispatch(fetchPosts())
   };
 };

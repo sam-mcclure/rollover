@@ -7,8 +7,7 @@ class RecommendedFollowsIndex extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchRecommendedFollows(this.props.currentUser.id,
-      {recommended: true});
+    this.props.fetchRecommendedFollows(this.props.currentUser.id);
   }
 
   render(){

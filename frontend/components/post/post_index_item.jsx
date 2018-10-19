@@ -34,7 +34,7 @@ class PostIndexItem extends React.Component {
         this.props.post.followId)
         .then(() => this.props.fetchPosts(this.props.postKeyword))
           .then(() => this.props.fetchRecommendedFollows(
-            this.props.currentUser.id, {recommended: true}));
+            this.props.currentUser.id));
     }
   }
 
@@ -50,7 +50,7 @@ class PostIndexItem extends React.Component {
       this.props.post.authorId)
       .then(() => this.props.fetchPosts(this.props.postKeyword))
         .then(() => this.props.fetchRecommendedFollows(
-          this.props.currentUser.id, {recommended: true}));
+          this.props.currentUser.id));
     }
   }
 

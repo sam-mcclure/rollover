@@ -13,7 +13,6 @@ class Api::FollowsController < ApplicationController
     end
   end
 
-
   def destroy
     @follow = Follow.find(params[:id])
     @follow.destroy!
@@ -21,18 +20,8 @@ class Api::FollowsController < ApplicationController
   end
 
   def index
-
-    if params[:follow][:recommended] = true
-      @follows = current_user.unfollowed_users
-      render :index
-    else
-      @follows = current_user.followed_users
-    end
+    @follows = current_user.unfollowed_users
+    render :index
   end
 
-  private
-
-  def follow_params
-    params.require(:follow).permit(:recommended)
-  end
 end

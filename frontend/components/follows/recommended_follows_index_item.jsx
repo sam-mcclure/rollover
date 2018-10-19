@@ -11,7 +11,7 @@ class RecommendedFollowsIndexItem extends React.Component {
     this.props.followUser(this.props.currentUser.id, this.props.user.id)
       .then(() => this.props.fetchPosts())
         .then(() => this.props.fetchRecommendedFollows(
-          this.props.currentUser.id, {recommended: true}));
+          this.props.currentUser.id));
   }
 
   render({user, followUser, currentUser} = this.props){

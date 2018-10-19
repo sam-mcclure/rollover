@@ -13,10 +13,9 @@ export const unfollowUser = (userId, followId) => {
   });
 };
 
-export const fetchRecommendedFollows = (userId, follow) => {
+export const fetchRecommendedFollows = (userId) => {
   return $.ajax({
     method: 'GET',
-    url: `api/users/${userId}/follows`,
-    data: { follow }
+    url: `api/users/${userId}/follows`
   });
 };

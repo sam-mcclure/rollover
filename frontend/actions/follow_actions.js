@@ -38,9 +38,9 @@ export const unfollowUser = (userId, followId) => {
   };
 };
 
-export const fetchRecommendedFollows = (userId, follow) => {
+export const fetchRecommendedFollows = (userId) => {
   return dispatch => {
-    FollowAPIUtil.fetchRecommendedFollows(userId, follow)
+    FollowAPIUtil.fetchRecommendedFollows(userId)
       .then((recommendedFollows) =>
       dispatch(receiveRecommendedFollows(recommendedFollows)));
   };
