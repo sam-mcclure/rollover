@@ -5,6 +5,7 @@ import Layout from '../layout/layout';
 import SidebarLayout from '../layout/sidebar_layout';
 import RecommendedFollowsContainer from
 '../follows/recommended_follows_container';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends React.Component{
   constructor(props){
@@ -19,8 +20,9 @@ class Dashboard extends React.Component{
 
           <div className='content-left'>
             <div className="user-bar">
-              <img className="user-img"
-                src={this.props.currentUser.photoUrl} />
+              <Link to={`/users/${this.props.currentUser.id}`}>
+                <img className="user-img"
+                src={this.props.currentUser.photoUrl} /></Link>
               <Form />
             </div>
             <PostIndexContainer />
