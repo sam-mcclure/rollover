@@ -61,13 +61,25 @@ class PostIndexItem extends React.Component {
   }
 
   like(postId, userId){
+    if (this.props.type){
+      this.props.likePost(postId, userId)
+        .then(() => this.props.fetchPosts(
+          this.props.userId, {posts: 'user'}));
+    } else {
     this.props.likePost(postId, userId)
       .then(() => this.props.fetchPosts(this.props.postKeyword));
+    }
   }
 
   unlike(postId, likeId){
+    if (this.props.type){
+      this.props.unlikePost(postId, likeId)
+      .then(() => this.props.fetchPosts(
+        this.props.userId, {posts: 'user'}));
+    } else {
     this.props.unlikePost(postId, likeId)
       .then(() => this.props.fetchPosts(this.props.postKeyword));
+    }
   }
 
   render({currentUser, post, deletePost, openModal, unfollowUser} = this.props){
