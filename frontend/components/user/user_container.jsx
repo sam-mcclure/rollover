@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { logout, clearErrors } from '../../actions/session_actions';
 import { unfollowUser, followUser } from '../../actions/follow_actions';
 import { fetchUser } from '../../actions/user_actions';
-import { fetchUserPosts } from '../../actions/post_actions';
+import { fetchUserPosts, clearPosts } from '../../actions/post_actions';
 
 const msp = (state, ownProps) => {
   return {
@@ -23,6 +23,8 @@ const mdp = dispatch => {
       dispatch(followUser(userId, followedUser)),
     unfollowUser: (userId, followId) =>
       dispatch(unfollowUser(userId, followId)),
+    clearPosts: () =>
+      dispatch(clearPosts())
   };
 };
 

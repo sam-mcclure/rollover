@@ -1,6 +1,6 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import Navbar from './navbar';
+import { clearPosts } from '../../actions/post_actions';
 
 const msp = state => {
   return {
@@ -8,4 +8,10 @@ const msp = state => {
   };
 };
 
-export default connect(msp, null)(Navbar);
+const mdp = dispatch => {
+  return {
+    clearPosts: () => dispatch(clearPosts())
+  };
+};
+
+export default connect(msp, mdp)(Navbar);
