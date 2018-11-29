@@ -40,7 +40,6 @@ export const clearPosts = () => {
 
 export const fetchPosts = () => {
   return dispatch => {
-    dispatch(startLoading());
     return PostApiUtil.fetchPosts()
       .then((posts) => dispatch(receiveAllPosts(posts)));
   };
@@ -48,7 +47,6 @@ export const fetchPosts = () => {
 
 export const fetchLikedPosts = (like) => {
   return dispatch => {
-    dispatch(startLoading());
     return PostApiUtil.fetchLikedPosts(like)
       .then((posts) => dispatch(receiveAllPosts(posts)));
   };
@@ -56,7 +54,6 @@ export const fetchLikedPosts = (like) => {
 
 export const fetchUserPosts = (userId, post) => {
   return dispatch => {
-    dispatch(startLoading());
     return PostApiUtil.fetchUserPosts(userId, post)
       .then((posts) => dispatch(receiveAllPosts(posts)));
   };
